@@ -1,0 +1,2216 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.56">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Victor Nugraha">
+
+<title>My document</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="Integration R Quarto &amp; Python Language for Dynamic Reproting_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Integration R Quarto &amp; Python Language for Dynamic Reproting_files/libs/quarto-html/quarto.js"></script>
+<script src="Integration R Quarto &amp; Python Language for Dynamic Reproting_files/libs/quarto-html/popper.min.js"></script>
+<script src="Integration R Quarto &amp; Python Language for Dynamic Reproting_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Integration R Quarto &amp; Python Language for Dynamic Reproting_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Integration R Quarto &amp; Python Language for Dynamic Reproting_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Integration R Quarto &amp; Python Language for Dynamic Reproting_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Integration R Quarto &amp; Python Language for Dynamic Reproting_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Integration R Quarto &amp; Python Language for Dynamic Reproting_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Integration R Quarto &amp; Python Language for Dynamic Reproting_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Integration-R-Quarto---Python-Language-for-Dynamic-Reproting.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">My document</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Victor Nugraha </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="pendahuluan" class="level1">
+<h1>Pendahuluan</h1>
+<p>Materi ini diproduksi oleh tim dari Algoritma untuk <em>DSS - Integration R Quarto &amp; Python Language for Dynamic Reproting</em>. Materi berikut hanya ditujukan untuk kalangan terbatas, meliputi individu/personal yang menerima materi ini secara langsung dari lembaga pelatihan. Materi ini dilarang untuk direproduksi, didistribusikan, diterjemahkan, atau diadaptasikan dalam bentuk apapun di luar izin dari individu dan organisasi yang berkepentingan.</p>
+<p><strong>Algoritma</strong> adalah pusat pendidikan Data Science di Jakarta. Kami mengadakan workshop dan program pelatihan untuk membantu para profesional dan pelajar untuk mendapatkan keahlian dalam berbagai bidang dalam ruang lingkup Data Science: <em>data visualization, machine learning, data modeling, statistical inference</em>, dan lain-lainnya.</p>
+<p>Sebelum masuk ke dalam materi dan menjalankan kode-kode di dalam materi ini, silakan anda melihat bagian <strong>Library and Setup</strong> untuk melihat dan memastikan semua persyaratan dasar untuk mengikuti materi ini sudah terpenuhi termasuk package-package yang diperlukan. Pada bagian <strong>Tujuan Pembelajaran</strong> anda dapat melihat secara umum apa saja yang akan dipelajari dalam modul materi ini. Kami harap materi ini akan bermanfaat bagi karir ataupun menambah keahlian peserta.</p>
+<section id="inline-code-dynamic-reporting" class="level2">
+<h2 class="anchored" data-anchor-id="inline-code-dynamic-reporting"><em>Inline Code Dynamic Reporting</em></h2>
+<p><em>Inline Code Dynamic Reporting</em> adalah metode pembuatan pelaporan di mana kode pemrograman ditulis langsung di dalam laporan untuk memproses, menganalisis, dan menampilkan data secara dinamis. Dengan pendekatan ini, pengguna dapat memasukkan atau mengubah kode di dalam laporan untuk menyesuaikan <em>output</em> sesuai kebutuhan spesifik, seperti menghitung metrik baru, memfilter data berdasarkan kondisi tertentu, atau membuat visualisasi khusus. <em>Inline code</em> ini biasanya ditulis dalam bahasa pemrograman yang mendukung analisis data, seperti Python atau R, dan dieksekusi secara langsung saat laporan diakses.</p>
+<p>Beberapa manfaat yang didapatkan dari metode <em>inline code dynamic reporting</em> adalah</p>
+<ul>
+<li><strong>Fleksibilitas</strong>: Memungkinkan pengguna untuk membuat laporan yang sepenuhnya dapat disesuaikan dan sesuai dengan kebutuhan analisis yang berubah-ubah tanpa memerlukan laporan baru atau alat tambahan.</li>
+<li><strong>Efisiensi</strong>: Mengurangi kebutuhan untuk membuat laporan secara manual atau memodifikasi laporan yang sudah ada karena semua perubahan dapat dilakukan secara langsung di dalam laporan dengan menyesuaikan kode.</li>
+<li><strong>Interaktivitas</strong>: Pengguna dapat berinteraksi dengan data secara lebih mendalam dengan menambahkan atau mengubah kode untuk melihat bagaimana berbagai skenario atau parameter memengaruhi hasil laporan.</li>
+</ul>
+</section>
+<section id="integrasi-antara-r-python" class="level2">
+<h2 class="anchored" data-anchor-id="integrasi-antara-r-python">Integrasi antara R &amp; Python</h2>
+<p>Seperti yang disampaikan di atas, Python <strong>atau</strong> R dapat dimanfaatkan untuk membuat sebuah <em>inline code dynamic reporting</em>, tapi kenapa kita tidak memanfaatkan Python <strong>dan</strong> R secara bersamaan?</p>
+<p>Dengan banyaknya kebutuhan untuk melakukan otomasi untuk efisiensi pekerjaan, membuat para pengembang teknologi harus saling membahu agar dapat menyajikan alat bantu yang lebih baik dari waktu ke waktu. Alasan tersebutlah yang menjadi bahan bakar untuk developer Python &amp; Posit, mengintegrasikan beberapa produk mereka untuk melengkapi antara satu dengan yang lainnya.</p>
+<p>Bahasa Python digemari dan digunakan oleh banyak individu dalam industri pekerjaan untuk mengolah data karena kemampuannya yang kuat dalam menangani berbagai jenis data, didukung oleh <em>library</em> yang memudahkan analisis, manipulasi, dan visualisasi data. Selain itu, sintaksis Python yang sederhana dan intuitif memungkinkan pengguna untuk menulis kode yang efisien dan mudah dipahami, sehingga mempercepat proses pengolahan data dan pengambilan keputusan berbasis data.</p>
+<p>Sedangkan R, yang sekarang dikembangkan oleh <strong>posit</strong>, menjadi salah opsi yang bisa juga dimanfaatkan untuk melakukan tugas yang sama dengan Python, akan tetapi R memiliki sebuah format file yang memungkinkan penggunanya untuk menghubungkan hasil kode pemograman ke narasi dan format file yang dimaksud adalah file <strong>R Quarto Markdown</strong>. Walaupun format file tersebut dibesarkan oleh perusahaan yang mengembangkan R, format file tersebut bisa menerima dan mengolah bahasa pemograman Python.</p>
+<blockquote class="blockquote">
+<p>“At the end of the day, we want to get the work done - not worry about tools.”</p>
+</blockquote>
+</section>
+<section id="tujuan-pembelajaran" class="level2">
+<h2 class="anchored" data-anchor-id="tujuan-pembelajaran">Tujuan Pembelajaran</h2>
+<p>Tujuan utama dari <em>workshop</em> ini adalah untuk memberikan pengenalan yang komprehensif mengenai tools dan perangkat lunak yang digunakan untuk melakukan <em>Inline Code Dynamic Reporting</em>, yakni dua open-source ternama: R &amp; Python. Adapun materi ini akan mencakup:</p>
+<ul>
+<li>Dasar R Studio &amp; Bahasa Python
+<ul>
+<li>Perkenalan ke software RStudio</li>
+<li>Integrasi antara Python &amp; RStudio</li>
+<li>Perkenalan ke bahasa Python</li>
+<li>Pemprosesan data dan manipulasi data dengan pandas</li>
+<li>Pembuatan visualisasi sederhana dengan matplotlib</li>
+</ul></li>
+<li>Format File Quarto Markdown
+<ul>
+<li>Perbedaan Quarto dengan R Markdown</li>
+<li>Perkenalan ke YAML</li>
+<li>Quarto Markdown Python chunk</li>
+<li><em>Inline code</em></li>
+<li><em>Render</em> Quarto Markdown</li>
+</ul></li>
+<li>Dynamic Reporting
+<ul>
+<li>Pemanfaatan <em>inline code</em></li>
+<li><em>Exporting dynamic reporting</em></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="dasar-r-studio-bahasa-python" class="level1">
+<h1>Dasar R Studio &amp; Bahasa Python</h1>
+<p>Sebagai tahapan awal untuk memudahkan proses pembelajaran, mari kita coba berkenalan atau mengulang ingatan tentang R Studio &amp; dasar bahasa Python.</p>
+<section id="perkenalan-ke-software-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="perkenalan-ke-software-rstudio">Perkenalan ke <em>Software</em> RStudio</h2>
+<section id="komponen-ui-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="komponen-ui-rstudio">Komponen UI RStudio</h3>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pada R Studio kita juga bisa memasukan gambar dengan menggunakan code di bawah ini</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Image, display</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>display(Image(filename<span class="op">=</span><span class="st">"assets/RStudio_UI.PNG"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="Integration%20R%20Quarto%20&amp;%20Python%20Language%20for%20Dynamic%20Reproting_files/figure-html/cell-2-output-1.png" class="img-fluid"></p>
+<p>Terdapat 4 panel utama yang harus Anda pahami yaitu :</p>
+<p><strong>1. Panel Source</strong> : Panel ini merupakan fitur utama dari RStudio, panel ini menampilkan file yang sedang dibuka pada RStudio.</p>
+<p><strong>2. Panel Console</strong> : Panel ini menampilkan console asli dari R yang digunakan untuk berkomunikasi dengan R session. Terdapat beberapa tab lain seperti Terminal yang dapat digunakan untuk mengakses komputer Anda melalui Command Line Interface (CLI).</p>
+<p><strong>3. Panel Environment / History</strong> : Bagian ini menampilkan seluruh object R yang sudah dibuat selama session yang sama. Terdapat tab History yang berfungsi untuk melihat history dari kode yang sudah dijalankan sebelumnya.</p>
+<p><strong>4. Panel Files/Plot/Packages/Help</strong> :</p>
+<ul>
+<li><em>Tab Files</em> : Daftar dari berkas (file) yang berada dalam <em>working directory</em></li>
+<li><em>Tab Plot</em> : Menampilkan visualisasi yang terbentuk</li>
+<li><em>Tab Packages</em> : Berisi daftar packages yang sudah ter-<em>install</em></li>
+<li><em>Tab Help</em> : Menampilkan dokumentasi resmi dari setiap fungsi</li>
+</ul>
+</section>
+<section id="komponen-tab-files-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="komponen-tab-files-rstudio">Komponen <em>Tab Files</em> RStudio</h3>
+<p>Pada komponen <em>tab files</em> akan digunakan untuk membuka file ataupun script dari R. Dalam kesempatan kali ini, format file yang digunakan adalah Quarto Markdown. Penjelasan yang lebih komprehensif akan dijelaskan pada bagian bawah material ini, akan tetapi yang akan dijelaskan terlebih dahulu pada bagian ini adalah Quarto Markdown memiliki 2 bagian, yaitu</p>
+<ul>
+<li><p><strong>Bagian Warna Putih</strong>: Berguna untuk menulis narasi. Pada bagian ini dapat ditambahkan heading dengan menambahkan hashtag <code>#</code> sebelum kalimat. Narasi yang tidak ditambahkan <code>#</code> sebelum kalimat akan menjadi paragraf biasa.</p></li>
+<li><p><strong>Bagian Warna Abu-Abu</strong>: Sering disebut sebagai <code>chunk</code>. Chunk berguna untuk menulis <strong>code</strong>.</p></li>
+</ul>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ini adalah contoh chunk</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><em>Disclaimer</em>, pembuatan chunk dapat menggunakan <em>shortcut</em> <code>ctrl + alt + i</code></p>
+</section>
+</section>
+<section id="integrasi-antara-python-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="integrasi-antara-python-rstudio">Integrasi antara Python &amp; RStudio</h2>
+<p>Untuk melakukan integrasi antara Python &amp; RStduio terdapat beberapa hal yang perlu dipersiapkan.</p>
+<ol type="1">
+<li><strong>Mempersiapkan Python dengan Miniconda atau Anaconda</strong></li>
+</ol>
+<ul>
+<li><p><strong>Unduh dan Instal Miniconda/Anaconda</strong>: Unduh Miniconda/Anaconda dari situs resmi Miniconda dan ikuti instruksi instalasi untuk sistem operasi Anda.</p></li>
+<li><p><strong>Buat Lingkungan Conda</strong>: Setelah Miniconda terinstal, buat lingkungan Conda baru yang akan digunakan dengan RStudio.</p></li>
+</ul>
+<pre><code>conda create -n myenv python=3.9
+conda activate myenv</code></pre>
+<p><em>Discalimer</em>, gantilah <code>myenv</code> dengan nama <em>environtment</em> yang diinginkan.</p>
+<ul>
+<li><strong>Instal <em>Library</em> Python</strong>: Instal <em>library</em> Python yang Anda perlukan dalam lingkungan Conda tersebut, seperti <code>pandas</code>, <code>numpy</code>, dan <code>matplotlib</code>.</li>
+</ul>
+<pre><code>conda install pandas numpy matplotlib</code></pre>
+<ol start="2" type="1">
+<li><strong>Instal Paket reticulate di RStudio</strong></li>
+</ol>
+<ul>
+<li><p><strong>Buka RStudio</strong></p></li>
+<li><p><strong>Instal Paket reticulate</strong>: Instal paket reticulate jika belum terinstal.</p></li>
+</ul>
+<pre><code>install.packages("reticulate")</code></pre>
+</section>
+<section id="perkenalan-ke-bahasa-python" class="level2">
+<h2 class="anchored" data-anchor-id="perkenalan-ke-bahasa-python">Perkenalan ke bahasa Python</h2>
+<p>Python menawarkan alat yang efisien dan fleksibel untuk analisis data. Kemampuannya untuk mengintegrasikan berbagai sumber data, mendukung operasi data yang kompleks, serta memudahkan pembuatan laporan dan visualisasi menjadikannya pilihan utama di bidang data science dan analisis data.</p>
+<p>Selanjutnya kita akan mengenal tentang dasar - dasar dalam pemrograman bahasa Python.</p>
+<section id="variables" class="level3">
+<h3 class="anchored" data-anchor-id="variables"><em>Variables</em></h3>
+<p>Di Python, variabel adalah tempat untuk menyimpan data yang dapat digunakan dan dimanipulasi dalam program. Variabel memungkinkan Anda untuk menyimpan nilai, seperti angka, teks, atau objek lainnya, dan memberi nama pada nilai-nilai tersebut untuk referensi selanjutnya.</p>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Menyimpan nilai ke variabel</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>materi <span class="op">=</span> <span class="st">"Python Reporting"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Memanggil isi variabel</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>materi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>'Python Reporting'</code></pre>
+<p><em>Disclaimer</em>, menjalankan chunk dapat menggunakan <em>shortcut</em> <code>ctrl + shift + enter</code></p>
+<section id="case-sensitive" class="level4">
+<h4 class="anchored" data-anchor-id="case-sensitive"><em>Case Sensitive</em></h4>
+<p>Dalam Python, case sensitive berarti bahwa huruf besar dan huruf kecil dianggap berbeda. Ini berlaku pada penamaan variabel, fungsi, dan identifier lainnya. Sebagai contoh, variabel <code>materi</code>, <code>Materi</code>, dan <code>MATERI</code> dianggap sebagai tiga variabel yang berbeda.</p>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Menyimpan nilai ke variabel</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>materi <span class="op">=</span> <span class="st">"Python Reporting"</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>Materi <span class="op">=</span> <span class="st">"Python"</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>MATERI <span class="op">=</span> <span class="st">"Reporting"</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Memanggil isi variabel</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>materi <span class="co"># Output Python Reporting</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>Materi <span class="co"># Output Python</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>MATERI <span class="co"># Output Reporting</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>'Reporting'</code></pre>
+<p>Karena Python peka terhadap huruf besar dan kecil, penting untuk konsisten dalam penggunaan huruf saat mengakses variabel atau fungsi yang telah didefinisikan.</p>
+</section>
+<section id="overwrite" class="level4">
+<h4 class="anchored" data-anchor-id="overwrite"><em>Overwrite</em></h4>
+<p>Dalam Python, overwrite terjadi ketika sebuah variabel yang sudah ada diberi nilai baru, sehingga nilai lama variabel tersebut akan digantikan oleh nilai baru.</p>
+<p>Misalnya, jika Anda mendeklarasikan variabel <code>materi</code> dengan nilai tertentu, dan kemudian memberikan nilai baru pada variabel <code>materi</code>, maka nilai sebelumnya akan hilang, dan variabel <code>materi</code> hanya akan menyimpan nilai baru tersebut.</p>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Menyimpan nilai ke variabel</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>materi <span class="op">=</span> <span class="st">"Python Reporting"</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>materi <span class="op">=</span> <span class="st">"Python"</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Memanggil isi variabel</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>materi </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>'Python'</code></pre>
+<p>Pada contoh di atas, nilai awal variabel <code>materi</code> adalah <code>Python Reporting</code>, tetapi setelah di-overwrite dengan <code>Python</code>, nilai sebelumnya tidak lagi dapat diakses. Ini adalah perilaku default Python yang memungkinkan variabel untuk berubah nilai seiring waktu.</p>
+</section>
+<section id="do-dont" class="level4">
+<h4 class="anchored" data-anchor-id="do-dont"><em>Do &amp; Don’t</em></h4>
+<p>Berikut ini adalah beberapa hal yang <strong>boleh</strong> dan <strong>tidak boleh</strong> dilakukan terkait dengan penamaan variabel di Python:</p>
+<section id="do" class="level5">
+<h5 class="anchored" data-anchor-id="do"><strong><em>Do</em></strong></h5>
+<p><strong>1. Penamaan Variabel Tidak Harus 1 Kata</strong></p>
+<p>Dalam penamaan variabel, ada kalanya harus menggunakan lebih dari satu kata. Untuk memungkinkan hal tersebut, diantara katanya bisa diberikan simbol <em>underscore</em>.</p>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Menyimpan nilai ke variabel dengan 2 kata</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>dss_sep <span class="op">=</span> <span class="st">"Python Reporting"</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Memanggil isi variabel</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>dss_sep</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>'Python Reporting'</code></pre>
+<p><strong>2. Angka Diletakan Di Belakang</strong></p>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Menyimpan nilai ke variabel dengan angka</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>dss_sep_2024 <span class="op">=</span> <span class="st">"Dynamic Reporting"</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Memanggil isi variabel</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>dss_sep_2024</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>'Dynamic Reporting'</code></pre>
+</section>
+<section id="dont" class="level5">
+<h5 class="anchored" data-anchor-id="dont"><strong><em>Don’t</em></strong></h5>
+<p><strong>1. Special Character <code>!, $ , &amp;, dll</code> Tidak Dapat Digunakan</strong></p>
+<p><strong>2. Tidak Boleh Menggunakan Keyword Python</strong></p>
+<p><em>Keywords</em> adalah kata kunci yang sudah ditetapkan oleh Python sebagai nama yang tidak bisa dipakai baik untuk penamaan fungsi, variabel, dan lainnya. Keyword ditulis dalam lower-case (huruf kecil semua) kecuali keyword <code>True</code>, <code>False</code>, dan <code>None</code>. Sejauh ini keyword yang ada pada Python adalah sebagai berikut:</p>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cek daftar keyword</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> keyword</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>keyword.kwlist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>['False',
+ 'None',
+ 'True',
+ 'and',
+ 'as',
+ 'assert',
+ 'async',
+ 'await',
+ 'break',
+ 'class',
+ 'continue',
+ 'def',
+ 'del',
+ 'elif',
+ 'else',
+ 'except',
+ 'finally',
+ 'for',
+ 'from',
+ 'global',
+ 'if',
+ 'import',
+ 'in',
+ 'is',
+ 'lambda',
+ 'nonlocal',
+ 'not',
+ 'or',
+ 'pass',
+ 'raise',
+ 'return',
+ 'try',
+ 'while',
+ 'with',
+ 'yield']</code></pre>
+</section>
+</section>
+</section>
+<section id="bentuk-data-python" class="level3">
+<h3 class="anchored" data-anchor-id="bentuk-data-python">Bentuk Data Python</h3>
+<p>Pada Python terdapat beberapa bentukan data berdasarkan peruntuhannya. Berikut beberapa jenis tipe data pada python:</p>
+<ol type="1">
+<li><strong><em>String</em></strong></li>
+</ol>
+<p>Dalam bahasa Python, tipe data <strong>String</strong> merepresentasikan teks. Tipe data ini terdiri dari serangkaian karakter yang juga dapat mengandung spasi dan angka. Sebagai contoh, kata “hamburger” dan frasa “I ate 3 hamburgers” keduanya merupakan string. Ada beberapa cara untuk membuat objek string di Python:</p>
+<ul>
+<li>Menggunakan tanda kutip tunggal -&gt; ‘Hello World!’</li>
+<li>Menggunakan tanda kutip ganda -&gt; “I’m a programmer”</li>
+<li>Menggunakan tanda kutip tiga -&gt; ’’’ “I’m smart!”, he said ’’’</li>
+</ul>
+<p><em>Disclaimer</em>, tanda kutip tiga dalam Python sangat membantu dengan memungkinkan string merentang ke beberapa baris.</p>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>judul_dss <span class="op">=</span> <span class="st">"Integration R Quarto &amp; Python Language for Dynamic Reproting"</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>judul_dss</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>'Integration R Quarto &amp; Python Language for Dynamic Reproting'</code></pre>
+<p>Kita dapat melakukan pengecekan tipe data dengan menggunakan fungsi <code>type()</code>, seperti yang akan dituliskan di bawah ini.</p>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mengecek bentukan data</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(judul_dss)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>str</code></pre>
+<ol start="2" type="1">
+<li><strong><em>Number</em></strong></li>
+</ol>
+<p>Python memiliki 2 bentukan untuk data yang berupa angka, yaitu <em>integer</em> &amp; <em>float</em>.</p>
+<ul>
+<li><strong><em>Integer</em></strong> <strong>(int64):</strong>
+<ul>
+<li>Tipe data yang digunakan untuk menyimpan bilangan bulat, baik positif, negatif, maupun nol.</li>
+<li>Tidak memiliki bagian desimal.</li>
+<li>Contoh: -5, 0, 42</li>
+</ul></li>
+</ul>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>integer <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>integer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>10</code></pre>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(integer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>int</code></pre>
+<ul>
+<li><strong><em>Float</em></strong> <strong>(float64):</strong>
+<ul>
+<li>Tipe data yang digunakan untuk menyimpan bilangan pecahan atau desimal.</li>
+<li>Dapat menyimpan angka dengan bagian desimal.</li>
+<li>Contoh: 3.14, -0.001, 2.0</li>
+</ul></li>
+</ul>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>desimal <span class="op">=</span> <span class="fl">10.12</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>desimal</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>10.12</code></pre>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(desimal)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>float</code></pre>
+<ol start="3" type="1">
+<li><strong><em>Compound</em></strong></li>
+</ol>
+<p>Di Python, <em>compound types</em> adalah tipe data yang dapat menyimpan lebih dari satu nilai di dalamnya. Ada satu jenis compound types yang sering digunakan, yaitu <code>list</code>.</p>
+<p><code>List</code> merupakan salah satu tipe data paling dasar dan serbaguna yang digunakan untuk menyimpan koleksi elemen. List sangat berguna karena sifatnya yang fleksibel, memungkinkan penyimpanan berbagai jenis data dan manipulasi elemen dengan mudah.</p>
+<p>List dibuat dengan menempatkan elemen-elemen di dalam tanda kurung siku <code>[]</code>, dipisahkan oleh koma.</p>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat list</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>bahasa <span class="op">=</span> [<span class="st">"Python"</span>, <span class="st">"R"</span>, <span class="st">"C"</span>]</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>tahun <span class="op">=</span> [<span class="dv">2021</span>, <span class="dv">2022</span>, <span class="dv">2023</span>, <span class="dv">2024</span>]</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Menampilkan list</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>bahasa</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>tahun</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>[2021, 2022, 2023, 2024]</code></pre>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(bahasa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>list</code></pre>
+</section>
+<section id="struktur-kontrol-if-else" class="level3">
+<h3 class="anchored" data-anchor-id="struktur-kontrol-if-else">Struktur Kontrol <code>if-else</code></h3>
+<p>Pernyataan <code>if-else</code> di Python adalah salah satu struktur kontrol yang paling dasar dan penting dalam pemrograman. Ini digunakan untuk membuat keputusan di dalam kode berdasarkan kondisi tertentu. Intuisinya mirip dengan pengambilan keputusan dalam kehidupan sehari-hari: <code>"Jika suatu kondisi benar, lakukan sesuatu; jika tidak, lakukan hal lain."</code></p>
+<p>Berikut adalah struktur dasar dari pernyataan if-else:</p>
+<pre><code>if kondisi:
+    # Blok kode ini akan dijalankan jika kondisi bernilai True
+else:
+    # Blok kode ini akan dijalankan jika kondisi bernilai False</code></pre>
+<ul>
+<li><strong><code>Kondisi if:</code></strong>:</li>
+</ul>
+<p>Python mengevaluasi kondisi ini terlebih dahulu. Jika hasilnya <code>True</code>, blok kode yang ada di bawah <code>if</code> (yang memiliki indentasi) akan dijalankan.</p>
+<ul>
+<li><strong><code>Kondisi else:</code></strong>:</li>
+</ul>
+<p>Jika kondisi pada <code>if</code> bernilai <code>False</code>, maka Python akan menjalankan blok kode yang ada di bawah <code>else</code>. Blok <code>else</code> bersifat opsional; artinya, Anda bisa hanya menggunakan <code>if</code> tanpa <code>else</code> jika tidak diperlukan.</p>
+<p>Selain dari kedua kondisi di atas, terdapat satu kondisi lagi yaitu <code>elif</code> (Else If), kondisi tersebut memungkinkan pengguna untuk menggunakan lebih dari 1 kondisi.</p>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Nilai yang mau dicek</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>score <span class="op">=</span> <span class="dv">85</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Struktur kondisi </span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> score <span class="op">&gt;=</span> <span class="dv">90</span>: <span class="co"># Kondisi 1</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Grade: A"</span>) <span class="co"># Hasil kondisi 1</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> score <span class="op">&gt;=</span> <span class="dv">80</span>: <span class="co"># Kondisi 2</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Grade: B"</span>) <span class="co"># Hasil kondisi 2</span></span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> score <span class="op">&gt;=</span> <span class="dv">70</span>: <span class="co"># Kondisi 3</span></span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Grade: C"</span>) <span class="co"># Hasil kondisi 3</span></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>: <span class="co"># Kondisi 4</span></span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Grade: F"</span>) <span class="co"># Hasil kondisi 4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Grade: B</p>
+<p>Penjelasan:</p>
+<ul>
+<li>Kondisi 1: Jika <strong><em>score</em></strong> <strong>lebih besar atau sama dengan 90</strong>, program mencetak <strong>Grade: A</strong>.</li>
+<li>Kondisi 2: Jika <strong><em>score</em></strong> <strong>lebih besar atau sama dengan 80 tapi kurang dari 90</strong>, program mencetak <strong>Grade: B</strong>.</li>
+<li>Kondisi 3: Jika <strong><em>score</em></strong> <strong>lebih besar atau sama dengan 70 tapi kurang dari 80</strong>, program mencetak <strong>Grade: C</strong>.</li>
+<li>Kondisi 4: Jika semua kondisi di atas <em>False</em>, program mencetak <strong>Grade: F</strong>.</li>
+</ul>
+</section>
+</section>
+<section id="pemprosesan-data-manipulasi-data-dengan-pandas" class="level2">
+<h2 class="anchored" data-anchor-id="pemprosesan-data-manipulasi-data-dengan-pandas">Pemprosesan Data &amp; Manipulasi Data Dengan Pandas</h2>
+<section id="persiapan-library" class="level3">
+<h3 class="anchored" data-anchor-id="persiapan-library">Persiapan <em>Library</em></h3>
+<p><em>Library</em> Python adalah kumpulan modul (file berisi kode Python) yang menyediakan fungsi, kelas, dan metode yang dapat digunakan untuk menyelesaikan tugas-tugas tertentu tanpa harus menulis kode dari nol. <em>Library</em> membantu pengembang untuk menghemat waktu dan usaha dengan menyediakan solusi siap pakai untuk berbagai kebutuhan, seperti manipulasi data, jaringan, pemrosesan gambar, analisis statistik, dan banyak lagi.</p>
+<p>Untuk menjalankan atau menggunakan <em>library</em> di Python, Anda perlu mengikuti beberapa langkah dasar, mulai dari instalasi hingga impor <em>library</em> tersebut ke dalam kode Python Anda. Berikut adalah langkah-langkahnya:</p>
+<ol type="1">
+<li><strong>Menginstal Library</strong></li>
+</ol>
+<p>Jika <em>library</em> yang ingin Anda gunakan adalah <em>library</em> eksternal (tidak termasuk dalam Python standard <em>library</em>), penggunanya perlu menginstalnya terlebih dahulu menggunakan <code>pip</code>, yang merupakan <em>package manager</em> untuk Python.</p>
+<p>Contoh Instalasi dengan pip:</p>
+<pre><code>pip install nama_library</code></pre>
+<ol start="2" type="1">
+<li><strong>Mengimpor Library</strong></li>
+</ol>
+<p>Setelah <em>library</em> diinstal, Anda perlu mengimpor library tersebut ke dalam skrip Python Anda sebelum bisa menggunakannya.</p>
+<p>Contoh Pengimporan:</p>
+<pre><code>import nama_library</code></pre>
+</section>
+<section id="pandas-library" class="level3">
+<h3 class="anchored" data-anchor-id="pandas-library">Pandas <em>Library</em></h3>
+<p><strong><em>Pandas</em></strong> digunakan untuk manipulasi dan analisis data, memungkinkan operasi yang mudah pada data berstruktur seperti tabel.</p>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pd.__version__)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>2.2.2</p>
+<p><em>Disclaimer</em>, <code>as pd</code> adalah alias yang digunakan untuk memudahkan penggunaan nama <em>library</em> yang panjang.</p>
+</section>
+<section id="membaca-dataframe" class="level3">
+<h3 class="anchored" data-anchor-id="membaca-dataframe">Membaca <em>DataFrame</em></h3>
+<p>Membaca data ke dalam <em>DataFrame</em> menggunakan Pandas adalah salah satu langkah awal yang umum dilakukan dalam analisis data. Pandas menyediakan berbagai fungsi untuk membaca data dari berbagai sumber, seperti file CSV, Excel dan lainnya, ke dalam <em>DataFrame</em>.</p>
+<p>Dalam kesempatan ini, format data yang akan digunakan adalah CSV, dan fungsi yang dapat digunakan adalah <code>pd.read_csv()</code>.</p>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>sales <span class="op">=</span> pd.read_csv(<span class="st">'data/sales.csv'</span>, index_col <span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>sales[<span class="st">"Date"</span>] <span class="op">=</span> pd.to_datetime(sales[<span class="st">"Date"</span>], dayfirst <span class="op">=</span> <span class="va">True</span>, errors <span class="op">=</span> <span class="st">'coerce'</span>)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>sales[<span class="st">"Date"</span>] <span class="op">=</span> sales[<span class="st">"Date"</span>].sort_values()</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>sales <span class="op">=</span> sales[(sales[<span class="st">'Date'</span>] <span class="op">&gt;=</span> <span class="st">"2021-01-01"</span>) <span class="op">&amp;</span> (sales[<span class="st">'Date'</span>] <span class="op">&lt;=</span> <span class="st">"2022-12-31"</span>)]</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>sales.to_csv(<span class="st">"data/sales_2021_2022.csv"</span>, header <span class="op">=</span><span class="va">True</span>, index <span class="op">=</span> <span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>sales</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th">Q-P1</th>
+<th data-quarto-table-cell-role="th">Q-P2</th>
+<th data-quarto-table-cell-role="th">Q-P3</th>
+<th data-quarto-table-cell-role="th">Q-P4</th>
+<th data-quarto-table-cell-role="th">S-P1</th>
+<th data-quarto-table-cell-role="th">S-P2</th>
+<th data-quarto-table-cell-role="th">S-P3</th>
+<th data-quarto-table-cell-role="th">S-P4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">3838</td>
+<td>2021-01-01</td>
+<td>7693</td>
+<td>2394</td>
+<td>2384</td>
+<td>1367</td>
+<td>24386.81</td>
+<td>15177.96</td>
+<td>12921.28</td>
+<td>9746.71</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3839</td>
+<td>2021-01-02</td>
+<td>5418</td>
+<td>1294</td>
+<td>1071</td>
+<td>1492</td>
+<td>17175.06</td>
+<td>8203.96</td>
+<td>5804.82</td>
+<td>10637.96</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">3840</td>
+<td>2021-01-03</td>
+<td>6718</td>
+<td>649</td>
+<td>4878</td>
+<td>1380</td>
+<td>21296.06</td>
+<td>4114.66</td>
+<td>26438.76</td>
+<td>9839.40</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3841</td>
+<td>2021-01-04</td>
+<td>6964</td>
+<td>1122</td>
+<td>2730</td>
+<td>428</td>
+<td>22075.88</td>
+<td>7113.48</td>
+<td>14796.60</td>
+<td>3051.64</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">3842</td>
+<td>2021-01-05</td>
+<td>3963</td>
+<td>1848</td>
+<td>1563</td>
+<td>944</td>
+<td>12562.71</td>
+<td>11716.32</td>
+<td>8471.46</td>
+<td>6730.72</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4561</td>
+<td>2022-12-26</td>
+<td>7600</td>
+<td>662</td>
+<td>4510</td>
+<td>988</td>
+<td>24092.00</td>
+<td>4197.08</td>
+<td>24444.20</td>
+<td>7044.44</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">4562</td>
+<td>2022-12-27</td>
+<td>7114</td>
+<td>2948</td>
+<td>681</td>
+<td>700</td>
+<td>22551.38</td>
+<td>18690.32</td>
+<td>3691.02</td>
+<td>4991.00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4563</td>
+<td>2022-12-28</td>
+<td>7759</td>
+<td>356</td>
+<td>1834</td>
+<td>1142</td>
+<td>24596.03</td>
+<td>2257.04</td>
+<td>9940.28</td>
+<td>8142.46</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">4564</td>
+<td>2022-12-29</td>
+<td>6457</td>
+<td>1851</td>
+<td>3369</td>
+<td>669</td>
+<td>20468.69</td>
+<td>11735.34</td>
+<td>18259.98</td>
+<td>4769.97</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4565</td>
+<td>2022-12-30</td>
+<td>7284</td>
+<td>1417</td>
+<td>788</td>
+<td>1369</td>
+<td>23090.28</td>
+<td>8983.78</td>
+<td>4270.96</td>
+<td>9760.97</td>
+</tr>
+</tbody>
+</table>
+
+<p>724 rows × 9 columns</p>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Membaca data dan menyimpannya ke variabel</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>sales <span class="op">=</span> pd.read_csv(<span class="st">'data/sales_2021_2022.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Untuk mempermudah proses penampilan data, pandas menyediakan dua fungsi yaitu <code>head()</code>&amp; <code>tail()</code>. Fungsi tersebut akan menampilkan bagian awal atau akhir dari data yang dimiliki</p>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Menampilkan 5 baris pertama</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>sales.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th">Q-P1</th>
+<th data-quarto-table-cell-role="th">Q-P2</th>
+<th data-quarto-table-cell-role="th">Q-P3</th>
+<th data-quarto-table-cell-role="th">Q-P4</th>
+<th data-quarto-table-cell-role="th">S-P1</th>
+<th data-quarto-table-cell-role="th">S-P2</th>
+<th data-quarto-table-cell-role="th">S-P3</th>
+<th data-quarto-table-cell-role="th">S-P4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2021-01-01</td>
+<td>7693</td>
+<td>2394</td>
+<td>2384</td>
+<td>1367</td>
+<td>24386.81</td>
+<td>15177.96</td>
+<td>12921.28</td>
+<td>9746.71</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2021-01-02</td>
+<td>5418</td>
+<td>1294</td>
+<td>1071</td>
+<td>1492</td>
+<td>17175.06</td>
+<td>8203.96</td>
+<td>5804.82</td>
+<td>10637.96</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2021-01-03</td>
+<td>6718</td>
+<td>649</td>
+<td>4878</td>
+<td>1380</td>
+<td>21296.06</td>
+<td>4114.66</td>
+<td>26438.76</td>
+<td>9839.40</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2021-01-04</td>
+<td>6964</td>
+<td>1122</td>
+<td>2730</td>
+<td>428</td>
+<td>22075.88</td>
+<td>7113.48</td>
+<td>14796.60</td>
+<td>3051.64</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2021-01-05</td>
+<td>3963</td>
+<td>1848</td>
+<td>1563</td>
+<td>944</td>
+<td>12562.71</td>
+<td>11716.32</td>
+<td>8471.46</td>
+<td>6730.72</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<p>Data yang ditampilkan merupakan data penjualan pada sebuah perusahaan dari awal tahun 2021 sampai dengan akhir tahun 2022. Ditambah juga dengan keterangan jumlah barang yang terjual beserta nominal sales yang didapatkan, untuk 4 jenis barang.</p>
+<p>Deskripsi data:</p>
+<ul>
+<li><code>Date</code>: Tanggal transaksi</li>
+<li><code>Q-P1</code>: Jumlah kuantitas produk 1 yang terjual</li>
+<li><code>Q-P2</code>: Jumlah kuantitas produk 2 yang terjual</li>
+<li><code>Q-P3</code>: Jumlah kuantitas produk 3 yang terjual</li>
+<li><code>Q-P4</code>: Jumlah kuantitas produk 4 yang terjual</li>
+<li><code>S-P1</code>: Jumlah sales produk 1 yang terjual</li>
+<li><code>S-P2</code>: Jumlah sales produk 2 yang terjual</li>
+<li><code>S-P3</code>: Jumlah sales produk 3 yang terjual</li>
+<li><code>S-P4</code>: Jumlah sales produk 4 yang terjual</li>
+</ul>
+</section>
+<section id="persiapan-data" class="level3">
+<h3 class="anchored" data-anchor-id="persiapan-data">Persiapan Data</h3>
+<section id="mengubah-nama-kolom" class="level4">
+<h4 class="anchored" data-anchor-id="mengubah-nama-kolom">Mengubah Nama Kolom</h4>
+<p>Dari nama kolom di awal, setiap nama kolomnya dirasa kurang intuitif karena merupakan singkatan dan nantinya ketika ingin ditampilkan dalam bentuk laporan akan kurang rapi. Maka dari itu, akan lebih baik untuk diubah dengan nama yang lebih intuitif.</p>
+<p>Untuk melakukan perubahan, terdapat sebuah metode yang dapat dimanfaatkan, yaitu dengan menggunakan atribut <code>.columns</code> dan membuat sebuah <code>list</code> nama kololom baru secara berurut untuk mengganti nama kolom yang lama.</p>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mengganti nama kolom</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>sales.columns <span class="op">=</span> [<span class="st">'Date'</span>, <span class="st">'Quantity Product 1'</span>, <span class="st">'Quantity Product 2'</span>, <span class="st">'Quantity Product 3'</span>, <span class="st">'Quantity Product 4'</span>, <span class="st">'Sales Product 1'</span>, <span class="st">'Sales Product 2'</span>, <span class="st">'Sales Product 3'</span>,<span class="st">'Sales Product 4'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mengecek hasil perubahan nama kolom</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>sales</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th">Quantity Product 1</th>
+<th data-quarto-table-cell-role="th">Quantity Product 2</th>
+<th data-quarto-table-cell-role="th">Quantity Product 3</th>
+<th data-quarto-table-cell-role="th">Quantity Product 4</th>
+<th data-quarto-table-cell-role="th">Sales Product 1</th>
+<th data-quarto-table-cell-role="th">Sales Product 2</th>
+<th data-quarto-table-cell-role="th">Sales Product 3</th>
+<th data-quarto-table-cell-role="th">Sales Product 4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2021-01-01</td>
+<td>7693</td>
+<td>2394</td>
+<td>2384</td>
+<td>1367</td>
+<td>24386.81</td>
+<td>15177.96</td>
+<td>12921.28</td>
+<td>9746.71</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2021-01-02</td>
+<td>5418</td>
+<td>1294</td>
+<td>1071</td>
+<td>1492</td>
+<td>17175.06</td>
+<td>8203.96</td>
+<td>5804.82</td>
+<td>10637.96</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2021-01-03</td>
+<td>6718</td>
+<td>649</td>
+<td>4878</td>
+<td>1380</td>
+<td>21296.06</td>
+<td>4114.66</td>
+<td>26438.76</td>
+<td>9839.40</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2021-01-04</td>
+<td>6964</td>
+<td>1122</td>
+<td>2730</td>
+<td>428</td>
+<td>22075.88</td>
+<td>7113.48</td>
+<td>14796.60</td>
+<td>3051.64</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2021-01-05</td>
+<td>3963</td>
+<td>1848</td>
+<td>1563</td>
+<td>944</td>
+<td>12562.71</td>
+<td>11716.32</td>
+<td>8471.46</td>
+<td>6730.72</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">719</td>
+<td>2022-12-26</td>
+<td>7600</td>
+<td>662</td>
+<td>4510</td>
+<td>988</td>
+<td>24092.00</td>
+<td>4197.08</td>
+<td>24444.20</td>
+<td>7044.44</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">720</td>
+<td>2022-12-27</td>
+<td>7114</td>
+<td>2948</td>
+<td>681</td>
+<td>700</td>
+<td>22551.38</td>
+<td>18690.32</td>
+<td>3691.02</td>
+<td>4991.00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">721</td>
+<td>2022-12-28</td>
+<td>7759</td>
+<td>356</td>
+<td>1834</td>
+<td>1142</td>
+<td>24596.03</td>
+<td>2257.04</td>
+<td>9940.28</td>
+<td>8142.46</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">722</td>
+<td>2022-12-29</td>
+<td>6457</td>
+<td>1851</td>
+<td>3369</td>
+<td>669</td>
+<td>20468.69</td>
+<td>11735.34</td>
+<td>18259.98</td>
+<td>4769.97</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">723</td>
+<td>2022-12-30</td>
+<td>7284</td>
+<td>1417</td>
+<td>788</td>
+<td>1369</td>
+<td>23090.28</td>
+<td>8983.78</td>
+<td>4270.96</td>
+<td>9760.97</td>
+</tr>
+</tbody>
+</table>
+
+<p>724 rows × 9 columns</p>
+</div>
+</section>
+<section id="tipe-data" class="level4">
+<h4 class="anchored" data-anchor-id="tipe-data">Tipe Data</h4>
+<p>Tipe data adalah klasifikasi yang menentukan jenis nilai yang dapat disimpan dan diproses dalam suatu variabel. Pada DataFrame di Python, yang biasanya dikelola dengan <code>library pandas</code>, setiap kolom dalam DataFrame dapat memiliki tipe data yang berbeda. Berikut adalah beberapa tipe data umum yang ditemukan dalam DataFrame:</p>
+<ul>
+<li><strong><em>Integer (int64)</em></strong>: Tipe data untuk bilangan bulat. Biasanya digunakan ketika kolom hanya berisi angka bulat tanpa desimal.</li>
+<li><strong><em>Float (float64)</em></strong>: Tipe data untuk bilangan desimal. Digunakan ketika kolom berisi angka dengan nilai desimal.</li>
+<li><strong><em>Boolean (bool)</em></strong>: Tipe data untuk nilai logika, yaitu True atau False.</li>
+<li><strong><em>Datetime (datetime64)</em></strong>: Tipe data untuk menyimpan tanggal dan waktu</li>
+<li><strong><em>String (object)</em></strong>: Tipe data untuk teks atau urutan karakter. Dalam DataFrame pandas, tipe data string biasanya diwakili sebagai object.</li>
+<li><strong><em>Categorical (category)</em></strong>: Tipe data untuk kolom yang hanya memiliki sejumlah nilai unik terbatas. Biasanya digunakan untuk menyimpan data kategorikal seperti label atau kelas.</li>
+</ul>
+<section id="mengecek-tipe-data" class="level5">
+<h5 class="anchored" data-anchor-id="mengecek-tipe-data">Mengecek Tipe Data</h5>
+<p>Metode <code>.info()</code> adalah salah satu metode yang sangat berguna di pandas untuk mendapatkan ringkasan informasi tentang tipe data masing-masing kolom pada DataFrame. Selain dari itu, <code>.info()</code> juga memberikan gambaran umum mengenai struktur DataFrame, termasuk jumlah baris dan kolom, nama kolom, dan jumlah nilai non-null (tidak kosong) di setiap kolom.</p>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mengecek tipe data</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>sales.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>&lt;class ‘pandas.core.frame.DataFrame’&gt; RangeIndex: 724 entries, 0 to 723 Data columns (total 9 columns): # Column Non-Null Count Dtype<br>
+— —— ————– —–<br>
+0 Date 724 non-null object 1 Quantity Product 1 724 non-null int64<br>
+2 Quantity Product 2 724 non-null int64<br>
+3 Quantity Product 3 724 non-null int64<br>
+4 Quantity Product 4 724 non-null int64<br>
+5 Sales Product 1 724 non-null float64 6 Sales Product 2 724 non-null float64 7 Sales Product 3 724 non-null float64 8 Sales Product 4 724 non-null float64 dtypes: float64(4), int64(4), object(1) memory usage: 51.0+ KB</p>
+</section>
+<section id="tipe-data-datetime" class="level5">
+<h5 class="anchored" data-anchor-id="tipe-data-datetime">Tipe Data DateTime</h5>
+<p>Dalam melakukan transformasi tipe data objek menjadi DateTime, dapat memanfaatkan fungsi <code>astype()</code> dan mengisinya dengan <code>datetime64[ns]</code>.</p>
+<p>Akan tetapi pandas juga menyediakan sebuah fungsi lainnya yang lebih flexibel membantu dalam berhadapan dengan data DateTime, yaitu fungsi <code>pd.to_datetime(x)</code>.</p>
+<p>Untuk mengetahui apa perbedaan dari kedua fungsi tersebut, mari coba implementasikan pada data dummy di bawah ini.</p>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dummy data dengan format awal tanggal-bulan-tahun</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>date <span class="op">=</span> pd.Series([<span class="st">'01-02-2023'</span>, <span class="st">'02-02-2023'</span>, <span class="st">'03-02-2023'</span>, <span class="st">'04-02-2023'</span>])</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>date</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>0    01-02-2023
+1    02-02-2023
+2    03-02-2023
+3    04-02-2023
+dtype: object</code></pre>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Implementasi astype()</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>date.astype(<span class="st">'datetime64[ns]'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>0   2023-01-02
+1   2023-02-02
+2   2023-03-02
+3   2023-04-02
+dtype: datetime64[ns]</code></pre>
+<p><em>Additional Notes</em>: Hasil yang dikeluarkan akan berbentuk Tahun-Bulan-Tanggal</p>
+<p>Dikarenakan keterbatasan dari <code>astype()</code> yang harus memiliki format awal yang sesuai dengan format hasil akhir, maka dari itu fungsi <code>pd.to_datetime()</code> bisa menjadi jawabannya karena fungsi tersebut dibekali dengan beberapa parameter pendukung, seperti yang dilampirkan di bawah ini.</p>
+<ul>
+<li>Parameter <code>dayfirst</code></li>
+</ul>
+<p>Dengan adanya parameter ini, dapat memberikan informasi format awal pada data tanggal yang diawali oleh informasi mengenai tanggal.</p>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>pd.to_datetime(sales[<span class="st">"Date"</span>], dayfirst <span class="op">=</span> <span class="va">True</span>, errors <span class="op">=</span> <span class="st">'coerce'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>0     2021-01-01
+1     2021-02-01
+2     2021-03-01
+3     2021-04-01
+4     2021-05-01
+         ...    
+719          NaT
+720          NaT
+721          NaT
+722          NaT
+723          NaT
+Name: Date, Length: 724, dtype: datetime64[ns]</code></pre>
+<ul>
+<li>Parameter <code>format</code></li>
+</ul>
+<p>Dengan adanya parameter ini, dapat memberikan informasi format awal seperti apa dan bentukan yang cukup variatif.</p>
+<p><a href="https://strftime.org/">Dokumentasi Python <code>strftime</code> cheatsheet</a></p>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>pd.to_datetime(sales[<span class="st">"Date"</span>], <span class="bu">format</span> <span class="op">=</span> <span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>, errors <span class="op">=</span> <span class="st">'coerce'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>0     2021-01-01
+1     2021-01-02
+2     2021-01-03
+3     2021-01-04
+4     2021-01-05
+         ...    
+719   2022-12-26
+720   2022-12-27
+721   2022-12-28
+722   2022-12-29
+723   2022-12-30
+Name: Date, Length: 724, dtype: datetime64[ns]</code></pre>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>sales[<span class="st">'Date'</span>] <span class="op">=</span> pd.to_datetime(sales[<span class="st">"Date"</span>], <span class="bu">format</span> <span class="op">=</span> <span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>, errors <span class="op">=</span> <span class="st">'coerce'</span>)</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>sales[<span class="st">'Date'</span>].info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>&lt;class ‘pandas.core.series.Series’&gt; RangeIndex: 724 entries, 0 to 723 Series name: Date Non-Null Count Dtype<br>
+————– —–<br>
+724 non-null datetime64[ns] dtypes: datetime64<a href="1">ns</a> memory usage: 5.8 KB</p>
+</section>
+</section>
+<section id="feature-engineering" class="level4">
+<h4 class="anchored" data-anchor-id="feature-engineering"><em>Feature Engineering</em></h4>
+<p><em>Feature Engineering</em> merupakan sebuah proses untuk mengembangkan dan memilih suatu fitur atau atribut (<em>features</em>) yang akan digunakan untuk melakukan analisis data.</p>
+<p><em>Feature Engineering</em> ini adalah merupakan salah satu tahap paling penting untuk melakukan sebuah proyek analisis data, hal ini dikarenakan kualitas fitur yang dihasilkan dapat digunakan untuk menghasilkan manfaat yang besar pada hasil analisis data yang dihasilkan.</p>
+<p><em>Disclaimer:</em> Tahapan ini baru bisa dilakukan untuk kolom yang sudah memiliki tipe data <em>datetime</em>.</p>
+<p>Berikut adalah beberapa atribut atau fungsi yang dapat dimanfaatkan untuk melakukan <em>feature engineering</em> pada tipe data <code>datetime</code> yang sudah dimiliki.</p>
+<p>Setiap atribut atau fungsi yang digunakan akan menggunakan accessor <code>.dt</code>.</p>
+<p><strong><em>Date Component Numeric</em></strong></p>
+<ul>
+<li><code>.dt.year</code> -&gt; Partisi tahun</li>
+<li><code>.dt.month</code> -&gt; Partisi bulan (angka)</li>
+<li><code>.dt.day</code> -&gt; Partisi day/tanggal (dalam angka)</li>
+<li><code>.dt.dayofweek</code> -&gt; Monday=0, Sunday=6</li>
+</ul>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Partisi tahun</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>sales[<span class="st">"Date"</span>].dt.year.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>0    2021
+1    2021
+2    2021
+Name: Date, dtype: int32</code></pre>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Partisi bulan</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>sales[<span class="st">"Date"</span>].dt.month.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>0    1
+1    1
+2    1
+Name: Date, dtype: int32</code></pre>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Partisi tanggal</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>sales[<span class="st">"Date"</span>].dt.day.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>0    1
+1    2
+2    3
+Name: Date, dtype: int32</code></pre>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Partisi hari dalam angka</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>sales[<span class="st">"Date"</span>].dt.dayofweek.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>0    4
+1    5
+2    6
+Name: Date, dtype: int32</code></pre>
+<p><strong><em>Date Component String</em></strong></p>
+<ul>
+<li><code>.dt.month_name()</code>-&gt; Partisi bulan (nama)</li>
+<li><code>.dt.day_name()</code>-&gt; Partisi hari (nama)</li>
+</ul>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Partisi nama bulan</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>sales[<span class="st">'Date'</span>].dt.month_name().head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>0    January
+1    January
+2    January
+Name: Date, dtype: object</code></pre>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Partisi nama hari</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>sales[<span class="st">'Date'</span>].dt.day_name().head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>0      Friday
+1    Saturday
+2      Sunday
+Name: Date, dtype: object</code></pre>
+<p><strong><em>Date Transformation</em></strong></p>
+<ul>
+<li><code>.dt.to_period('W')</code> -&gt; Transformasi ke format awal minggu - akhir minggu</li>
+<li><code>.dt.to_period('M')</code> -&gt; Transformasi ke format year-month</li>
+<li><code>.dt.to_period('Q')</code> -&gt; Transformasi ke format year-quartal</li>
+</ul>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transformasi ke format awal minggu - akhir minggu</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>sales[<span class="st">'Date'</span>].dt.to_period(<span class="st">'W'</span>).head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>0    2020-12-28/2021-01-03
+1    2020-12-28/2021-01-03
+2    2020-12-28/2021-01-03
+Name: Date, dtype: period[W-SUN]</code></pre>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transformasi ke format tahun-bulan</span></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>sales[<span class="st">'Date'</span>].dt.to_period(<span class="st">'M'</span>).head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>0    2021-01
+1    2021-01
+2    2021-01
+Name: Date, dtype: period[M]</code></pre>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transformasi ke format tahun-quartal</span></span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>sales[<span class="st">'Date'</span>].dt.to_period(<span class="st">'Q'</span>).head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>0    2021Q1
+1    2021Q1
+2    2021Q1
+Name: Date, dtype: period[Q-DEC]</code></pre>
+</section>
+<section id="missing-duplicates" class="level4">
+<h4 class="anchored" data-anchor-id="missing-duplicates"><em>Missing &amp; Duplicates</em></h4>
+<section id="missing-value" class="level5">
+<h5 class="anchored" data-anchor-id="missing-value"><em>Missing Value</em></h5>
+<p>Tahapan pertama dalam berhadapan dengan data <em>missing</em> adalah mengetahui apakah terdapat data <em>missing</em> atau tidak. Terdapat juga sebuah fungsi yang dapat digunakan secara spesifik untuk mengecek nilai <em>missing</em> pada data, yaitu dengan menggabungkan 2 fungsi <code>.isna()</code> &amp; <code>.sum()</code></p>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mengecek apakah ada data missing atau tidak</span></span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>sales.isna().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>Date                  0
+Quantity Product 1    0
+Quantity Product 2    0
+Quantity Product 3    0
+Quantity Product 4    0
+Sales Product 1       0
+Sales Product 2       0
+Sales Product 3       0
+Sales Product 4       0
+dtype: int64</code></pre>
+<p>Dari hasil pengamatan data di atas, dapat disimpulkan bahwa pada data yang digunakan tidak memiliki nilai kosong sama sekali.</p>
+<p>Akan tetapi jika terdapat data kosong, terdapat beberapa pendekatan yang dapat dilakukan, seperti:</p>
+<ol type="1">
+<li><strong>Hapus baris atau kolom</strong></li>
+</ol>
+<p>Salah satu metode dalam berhadapan dengan nilai <em>missing</em> adalah dengan langsung menghapus saja setiap baris yang berisikan nilai *missing, dengan syarat nilai missing pada kolom tersebut <strong>kurang dari 5%</strong> dari total keseluruhan baris.</p>
+<p>Fungsi yang akan digunakan adalah fungsi <code>.dropna()</code>.</p>
+<ol start="2" type="1">
+<li><strong><em>Replace/Input</em></strong> <strong>NA dengan nilai <code>mean</code>, <code>median</code>, dll</strong></li>
+</ol>
+<p>Metode lainnya yang dapat digunakan dalam berhadapan dengan nilai <em>missing</em> adalah dengan melakukan imputasi atau pengisian dengan nilai dummy berdasarkan informasi data yang lainnya.</p>
+<p>Hal tersebut dapat dilakukan dengan menggunakan metode <code>.fillna()</code></p>
+<ol start="3" type="1">
+<li><strong>Tetap mempertahankan data kita</strong></li>
+</ol>
+</section>
+<section id="duplicates-value" class="level5">
+<h5 class="anchored" data-anchor-id="duplicates-value"><em>Duplicates Value</em></h5>
+<p>Tahapan pertama dalam berhadapan dengan data <em>duplicate</em> adalah mengetahui apakah terdapat data <em>duplicate</em> atau tidak. Terdapat juga fungsi yang dapat digunakan secara spesifik untuk mengecek nilai <em>duplicate</em> pada data, yaitu dengan menggabungkan 2 fungsi <code>.duplicated()</code> &amp; <code>.sum()</code></p>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mengecek apakah ada data duplikat atau tidak</span></span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>sales.duplicated().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>0</code></pre>
+<p>Untuk menangani data yang <em>duplicate</em>, kita bisa menggunakan method <code>drop_duplicate()</code>. Cara ini membuat observasi yang duplicated terhapus dan bisa juga untuk mengatur observasi mana yang akan tetap disimpan.</p>
+<p>Terdapat 2 macam cara untuk melakukan penghapusan pada nilai duplicate.</p>
+<ol type="1">
+<li>Dengan menambahkan parameter <code>keep='first'</code>, maka akan mempertahankan baris teratas dari nilai yang <em>duplicate</em>.</li>
+<li>Dengan menambahkan parameter <code>keep='last'</code>, maka akan mempertahankan baris terbawah dari nilai yang <em>duplicate</em>.</li>
+</ol>
+</section>
+</section>
+</section>
+<section id="conditional-subsetting" class="level3">
+<h3 class="anchored" data-anchor-id="conditional-subsetting"><em>Conditional Subsetting</em></h3>
+<p><em>Conditional subsetting</em> di <code>pandas</code> adalah teknik untuk mengekstrak subset data dari DataFrame atau Series berdasarkan kondisi tertentu. Ini memungkinkan untuk memilih/mengambil data yang memenuhi kriteria spesifik, seperti nilai dalam kolom yang melebihi ambang batas tertentu, teks yang mengandung kata tertentu, atau gabungan dari beberapa kondisi.</p>
+<p>Syntax penulisan untuk conditional subsetting adalah:</p>
+<p><strong><code>df[df['column_name'] &lt;comparison_operator&gt; &lt;value&gt;]</code></strong></p>
+<p>Contoh comparison_operator adalah <code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, <code>&lt;=</code>.</p>
+<ul>
+<li><code>==</code>: untuk mengambil nilai yang sama</li>
+<li><code>!=</code>: untuk mengambil nilai yang tidak sama (misal !=supermarket -&gt; minimarket &amp; hypermarket)</li>
+<li><code>&gt;</code>: untuk mengambil sebuah nilai angka yang lebih besar (misalkan &gt; 200 -&gt; 201)</li>
+<li><code>&gt;=</code>: untuk mengambil sebuah nilai angka yang sama dan lebih besar dari ketentuannya (misal &gt;= 200 -&gt; 200,201,..)</li>
+<li><code>&lt;</code>: untuk mengambil sebuah nilai angka yang lebih kecil (misalkan &lt; 200 -&gt; 199)</li>
+<li><code>&lt;=</code>: untuk mengambil sebuah nilai angka yang sama dan lebih kecil dari ketentuannya (misal &lt;= 200 -&gt; 200,199,..)</li>
+</ul>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Conditional Subsetting untuk mengambil data pada tanggal 2021-01-01</span></span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>sales[sales[<span class="st">'Date'</span>] <span class="op">==</span> <span class="st">"2021-01-1"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th">Quantity Product 1</th>
+<th data-quarto-table-cell-role="th">Quantity Product 2</th>
+<th data-quarto-table-cell-role="th">Quantity Product 3</th>
+<th data-quarto-table-cell-role="th">Quantity Product 4</th>
+<th data-quarto-table-cell-role="th">Sales Product 1</th>
+<th data-quarto-table-cell-role="th">Sales Product 2</th>
+<th data-quarto-table-cell-role="th">Sales Product 3</th>
+<th data-quarto-table-cell-role="th">Sales Product 4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2021-01-01</td>
+<td>7693</td>
+<td>2394</td>
+<td>2384</td>
+<td>1367</td>
+<td>24386.81</td>
+<td>15177.96</td>
+<td>12921.28</td>
+<td>9746.71</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<p><strong>Additional Information:</strong></p>
+<p>Kita juga dapat menggunakan operator <code>&amp;</code> (AND) dan <code>|</code> (OR) untuk melakukan subsetting lebih dari 1 kondisi. Misalnya hasil yang ingin diamati adalah data penjualan dari seorang pegawai bernama Moana yang jumlahnya lebih dari 5000, maka dapat menggunakan syntax:</p>
+<pre><code>sales[(sales.salesperson == 'Moana') &amp; (sales.amount &gt; 5000)]</code></pre>
+<p>Untuk subsetting dengan kondisi lebih dari 1, setiap kondisi diletakkan <strong>di dalam tanda kurung <code>()</code></strong> atau bisa ditulis dengan syntax berikut:</p>
+<pre><code>df[(kondisi pertama) operator (kondisi kedua) operator (kondisi ketiga) dan seterusnya...]</code></pre>
+<p><strong>Poin:</strong> - Operator <code>AND</code>: harus semua kondisi terpenuhi dalam satu baris agar muncul - Operator <code>OR</code>: salah satu kondisi saja sudah terpenuhi maka baris tersebut muncul</p>
+<p><strong>Contoh sederhana penggunaan OR dan AND</strong></p>
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data dummy</span></span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'angka'</span>: [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],</span>
+<span id="cb81-4"><a href="#cb81-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'huruf'</span>: [<span class="st">'a'</span>,<span class="st">'b'</span>,<span class="st">'c'</span>]</span>
+<span id="cb81-5"><a href="#cb81-5" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb81-6"><a href="#cb81-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-7"><a href="#cb81-7" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">angka</th>
+<th data-quarto-table-cell-role="th">huruf</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>a</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>b</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>c</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<p><strong>OPERATOR AND</strong></p>
+<p>Menampilkan baris dengan <code>angka</code> lebih besar dari 1 dan dengan <code>huruf</code> b</p>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co">#code here</span></span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a>df[(df[<span class="st">'angka'</span>] <span class="op">&gt;</span> <span class="dv">1</span>) <span class="op">&amp;</span> (df[<span class="st">'huruf'</span>] <span class="op">==</span> <span class="st">'b'</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">angka</th>
+<th data-quarto-table-cell-role="th">huruf</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>b</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<p><strong>OPERATOR OR</strong></p>
+<p>Menampilkan baris dengan <code>huruf</code> a dan b</p>
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co">#code here</span></span>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>df[(df[<span class="st">'huruf'</span>] <span class="op">==</span> <span class="st">'a'</span>) <span class="op">|</span> (df[<span class="st">'huruf'</span>] <span class="op">==</span> <span class="st">'b'</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">angka</th>
+<th data-quarto-table-cell-role="th">huruf</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>a</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>b</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</section>
+<section id="aggregasi-data" class="level3">
+<h3 class="anchored" data-anchor-id="aggregasi-data">Aggregasi Data</h3>
+<p>Agregasi data adalah proses meringkas atau menggabungkan data dalam sebuah DataFrame, sehingga kita bisa mendapatkan informasi seperti total, rata-rata, jumlah, dan lainnya dari kelompok data tertentu.</p>
+<p><code>crosstab()</code> adalah fungsi di <code>pandas</code> yang digunakan untuk menghitung frekuensi atau meringkas data dengan cepat dalam bentuk tabel silang. Ini sangat mirip dengan fitur tabel pivot di Excel, tetapi lebih spesifik untuk menghitung frekuensi atau agregasi dengan dua atau lebih kategori.</p>
+<p>Berikut adalah syntax:</p>
+<p><code>pd.crosstab(index= nama_df['nama_kolom'], columns= nama_df['nama_kolom'])</code></p>
+<p>Dimana tujuan dari setiap parameternya :</p>
+<ul>
+<li><code>index</code> : kolom yang akan dijadikan index baris</li>
+<li><code>columns</code> : kolom yang akan dijadikan index kolom</li>
+</ul>
+<p>Sebagai contoh, analisa yang ingin dilakukan adalah berapakah total frekuensi dari setiap quarter untuk kurun waktu 2 tahun terakhir.</p>
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat kolom baru untuk informasi quarter</span></span>
+<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a>sales[<span class="st">'Quarter'</span>] <span class="op">=</span> sales[<span class="st">'Date'</span>].dt.to_period(<span class="st">'Q'</span>)</span>
+<span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a>sales[<span class="st">'Quarter'</span>].head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>0    2021Q1
+1    2021Q1
+2    2021Q1
+Name: Quarter, dtype: period[Q-DEC]</code></pre>
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Menghitung frekuensi</span></span>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>pd.crosstab(index <span class="op">=</span> sales[<span class="st">'Quarter'</span>],</span>
+<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a>            columns <span class="op">=</span> <span class="st">'Frekuensi'</span>, </span>
+<span id="cb86-4"><a href="#cb86-4" aria-hidden="true" tabindex="-1"></a>            colnames <span class="op">=</span> [<span class="va">None</span>]) <span class="co"># Parameter tambahan untuk menghilangkan nama kolom col_0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Frekuensi</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Quarter</th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2021Q1</td>
+<td>90</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2021Q2</td>
+<td>91</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2021Q3</td>
+<td>91</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2021Q4</td>
+<td>90</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2022Q1</td>
+<td>90</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2022Q2</td>
+<td>91</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2022Q3</td>
+<td>91</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2022Q4</td>
+<td>90</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<p>Selain dari memanfaatkan metode perhitungan <code>crosstab()</code>. Metode <code>groupby()</code> di <code>Pandas</code> dapat digunakan juga untuk mengelompokkan data berdasarkan satu atau lebih kolom. Setelah data dikelompokkan, kita dapat menerapkan berbagai operasi agregasi, seperti <code>sum()</code>, <code>mean()</code>, <code>count()</code>, <code>max()</code>, <code>min()</code>, dan lainnya pada setiap kelompok data.</p>
+<p>Sebagai contoh, analisa yang ingin dilakukan adalah menghitung rata-rata penjualan untuk setiap produk yang ada.</p>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Melakukan perhitungan rata-rata</span></span>
+<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a>sales.groupby(<span class="st">'Quarter'</span>).mean(numeric_only<span class="op">=</span><span class="va">True</span>)[[<span class="st">'Sales Product 1'</span>, <span class="st">'Sales Product 2'</span>, <span class="st">'Sales Product 3'</span>, <span class="st">'Sales Product 4'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Sales Product 1</th>
+<th data-quarto-table-cell-role="th">Sales Product 2</th>
+<th data-quarto-table-cell-role="th">Sales Product 3</th>
+<th data-quarto-table-cell-role="th">Sales Product 4</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Quarter</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2021Q1</td>
+<td>14210.123778</td>
+<td>13993.788889</td>
+<td>16763.999778</td>
+<td>7787.227556</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2021Q2</td>
+<td>13492.948242</td>
+<td>13354.548132</td>
+<td>17372.231648</td>
+<td>8669.609890</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2021Q3</td>
+<td>12842.715055</td>
+<td>12830.000220</td>
+<td>16462.565055</td>
+<td>7878.258242</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2021Q4</td>
+<td>12029.375111</td>
+<td>14512.753111</td>
+<td>18960.906444</td>
+<td>7640.983333</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2022Q1</td>
+<td>13062.830333</td>
+<td>12576.798889</td>
+<td>16093.365111</td>
+<td>7914.300000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2022Q2</td>
+<td>12764.614615</td>
+<td>13531.441099</td>
+<td>17091.285055</td>
+<td>7411.830879</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2022Q3</td>
+<td>12348.438901</td>
+<td>13916.718022</td>
+<td>15793.880000</td>
+<td>7587.260220</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2022Q4</td>
+<td>12556.193889</td>
+<td>12970.512889</td>
+<td>17250.294222</td>
+<td>7591.073333</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</section>
+</section>
+<section id="pembuatan-sisualisasi-sederhana-dengan-matplotlib" class="level2">
+<h2 class="anchored" data-anchor-id="pembuatan-sisualisasi-sederhana-dengan-matplotlib">Pembuatan Sisualisasi Sederhana Dengan <code>matplotlib</code></h2>
+<p><code>Matplotlib</code> adalah library yang kuat dan fleksibel untuk membuat visualisasi data di Python. Dengan <code>Matplotlib</code>, dapat membantu untuk membuat berbagai jenis grafik untuk menganalisis dan memahami data.</p>
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Persiapan library</span></span>
+<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Pembuatan visualisasi dengan bantuan library <code>matplotlib</code>, fungsi yang dapat digunakan adalah</p>
+<ul>
+<li>Line Plot: <code>.plot()</code></li>
+<li>Bar Plot: <code>.plot(kind= 'bar'/'barh')</code></li>
+</ul>
+<p>Sedangkan untuk menampilkan hasil dari visualnya bisa menggunakan fungsi <code>plt.show()</code></p>
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mempersiapkan dataframe</span></span>
+<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a>frekuensi <span class="op">=</span> pd.crosstab(index <span class="op">=</span> sales[<span class="st">'Quarter'</span>],</span>
+<span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a>                        columns <span class="op">=</span> <span class="st">'Frekuensi'</span>, </span>
+<span id="cb89-4"><a href="#cb89-4" aria-hidden="true" tabindex="-1"></a>                        colnames <span class="op">=</span> [<span class="va">None</span>])</span>
+<span id="cb89-5"><a href="#cb89-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-6"><a href="#cb89-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat visualisasi</span></span>
+<span id="cb89-7"><a href="#cb89-7" aria-hidden="true" tabindex="-1"></a>frekuensi.plot()</span>
+<span id="cb89-8"><a href="#cb89-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-9"><a href="#cb89-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Melakukan kustomisasi</span></span>
+<span id="cb89-10"><a href="#cb89-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Frekuensi Penjualan Tahun 2021-2022'</span>) <span class="co"># Menambahkan judul</span></span>
+<span id="cb89-11"><a href="#cb89-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Tahun-Kuarter'</span>) <span class="co"># Mengatur nama sumbu x</span></span>
+<span id="cb89-12"><a href="#cb89-12" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frekuensi Penjualan'</span>) <span class="co"># Mengatur nama sumbu y</span></span>
+<span id="cb89-13"><a href="#cb89-13" aria-hidden="true" tabindex="-1"></a>plt.yticks(<span class="bu">range</span>(<span class="dv">90</span>, <span class="dv">92</span>, <span class="dv">1</span>))  <span class="co"># Mengatur interval sumbu y</span></span>
+<span id="cb89-14"><a href="#cb89-14" aria-hidden="true" tabindex="-1"></a>plt.legend().remove() <span class="co"># Menghilangkan legenda</span></span>
+<span id="cb89-15"><a href="#cb89-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-16"><a href="#cb89-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Menampilkan visualisasi</span></span>
+<span id="cb89-17"><a href="#cb89-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="Integration%20R%20Quarto%20&amp;%20Python%20Language%20for%20Dynamic%20Reproting_files/figure-html/cell-52-output-1.png" width="594" height="464"></p>
+</section>
+</section>
+<section id="format-file-quarto-markdown" class="level1">
+<h1>Format File Quarto Markdown</h1>
+<p>Quarto adalah sebuah sistem untuk membuat dokumen, laporan, artikel, buku, situs web, dan presentasi yang interaktif dan dinamis menggunakan markdown. Quarto dirancang untuk ilmuwan data, penulis teknis, dan peneliti yang bekerja dengan berbagai bahasa pemrograman seperti R, Python, dll.</p>
+<section id="perbedaan-quarto-dengan-r-markdown" class="level2">
+<h2 class="anchored" data-anchor-id="perbedaan-quarto-dengan-r-markdown">Perbedaan Quarto dengan R Markdown</h2>
+<p><em>Quarto Markdown</em> memiliki perbedaan yang paling signifikan dengan R Markdown pada fleksibilitas terhadap basaha pemrograman yang digunakan dan fitur yang lebih moderen.</p>
+<ol type="1">
+<li><strong>Dukungan Multi-bahasa yang Lebih Baik</strong></li>
+</ol>
+<p>Walaupun R Markdown juga memiliki kapabilitas untuk digunakan dengan bahasa selain R, akan tetapi pemanfaatan Quarto Markdown untuk menjalankan bahasa pemograman lainnya selain R, hal itu dikarenakan Quarto Markdown memang mendukung untuk menjalankan bahasa Python, Julia, dan Observable (JavaScript) secara <em>native</em>, tidak seperti R Markdown yang secara khusus dipersiapkan untuk bahasa R saja ketika pertama kali dikembangkan.</p>
+<ol start="2" type="1">
+<li><strong>Fitur Modern <em>What You See Is What You Mean</em></strong></li>
+</ol>
+<p>Selain dari kemampuannya untuk bekerja dengan banyak bahasa, Quarto juga memiliki pengembangan pada proses pembuatan dokumen yang memanfaatkan konsep <em>What You See Is What You Mean</em>.</p>
+<p><em>What You See Is What You Mean</em> (WYSIWYM) adalah konsep dalam desain antarmuka pengguna dan pembuatan konten yang berfokus pada penyediaan umpan balik visual yang langsung dan akurat tentang struktur semantik dari informasi yang sedang dibuat atau diedit oleh pengguna. Dengan adanya konsep ini para pengguna harapannya akan lebih merasa produktif.</p>
+<ul>
+<li><strong>Mengganti Tampilan</strong></li>
+</ul>
+<p>Dokumen markdown dapat diedit dalam mode sumber (<em>source</em>) atau <em>visual.</em> Untuk beralih ke mode visual pada dokumen tertentu, gunakan tombol <em>Source</em> atau <em>Visual</em> di bagian kiri atas toolbar dokumen (atau sebagai alternatif, gunakan pintasan keyboard <code>⌃⇧ F4</code>):</p>
+<p>Gambar cuplikan jendela RStudio yang menunjukkan bilah opsi di bagian atas dokumen Quarto.</p>
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a>display(Image(filename<span class="op">=</span><span class="st">"assets/visual-editing-switch-modes.png"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="Integration%20R%20Quarto%20&amp;%20Python%20Language%20for%20Dynamic%20Reproting_files/figure-html/cell-53-output-1.png" class="img-fluid"></p>
+<ul>
+<li><strong><em>Keyboard Shortcuts</em></strong></li>
+</ul>
+<p>Dengan memanfaatkan mode visual, pengguna Quarto Markdown diberikan tambahan fitur untuk menggunakan <em>keyboard shortcut</em> tanpa harus menggunakan pengaturan markdown yang relatif lebih konvensional.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Keyboard Shortcut</th>
+<th>Markdown Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Bold</td>
+<td>Ctrl / ^ + B</td>
+<td><strong>bold</strong></td>
+</tr>
+<tr class="even">
+<td>Italic</td>
+<td>Ctrl / ^ + I</td>
+<td><em>italic</em></td>
+</tr>
+<tr class="odd">
+<td>Code</td>
+<td>Ctrl / ^ + D</td>
+<td><code>code</code></td>
+</tr>
+<tr class="even">
+<td>Header</td>
+<td>Ctrl + Alt / ⌥ + ^ + 1</td>
+<td>Heading 1</td>
+</tr>
+</tbody>
+</table>
+<p>Untuk referensi yang lebih lengkapnya bisa merujuk ke <a href="https://quarto.org/docs/visual-editor/options.html#shortcuts">dokumentasi berikut ini</a>.</p>
+<ul>
+<li><strong><em>Editor Toolbar</em></strong></li>
+</ul>
+<p>Toolbar editor mencakup tombol-tombol untuk perintah pemformatan yang paling sering digunakan:</p>
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>display(Image(filename<span class="op">=</span><span class="st">"assets/visual-editing-switch-modes.png"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="Integration%20R%20Quarto%20&amp;%20Python%20Language%20for%20Dynamic%20Reproting_files/figure-html/cell-54-output-1.png" class="img-fluid"></p>
+<p>Perintah tambahan tersedia di menu Format, Insert, dan Table.</p>
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>display(Image(filename<span class="op">=</span><span class="st">"assets/visual-editing-insert-menu.png"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="Integration%20R%20Quarto%20&amp;%20Python%20Language%20for%20Dynamic%20Reproting_files/figure-html/cell-55-output-1.png" class="img-fluid"></p>
+</section>
+<section id="perkenalan-ke-yaml" class="level2">
+<h2 class="anchored" data-anchor-id="perkenalan-ke-yaml">Perkenalan ke YAML</h2>
+<p><strong>YAML</strong>, singkatan dari <em>“YAML Ain’t Markup Language”</em> (sebelumnya <em>“Yet Another Markup Language”</em>), adalah format data serialisasi yang dirancang untuk menjadi mudah dibaca dan ditulis oleh manusia.</p>
+<p>YAML juga digunakan dalam dokumen konfigurasi untuk alat-alat seperti Quarto dan RMarkdown (di bagian header YAML) untuk menentukan metadata dokumen, seperti judul, penulis, dan format output.Berikut adalah beberapa pengaturan yang biasanya digunakan pada YAML</p>
+<ul>
+<li><p><strong><em>Title &amp; Author</em></strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 79%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>title</td>
+<td>Judul dari dokumen, bisa diisi dengan tulisan</td>
+</tr>
+<tr class="even">
+<td>date</td>
+<td>Tanggal dari dokumen dibuat, bisa diisi dengan tulisan</td>
+</tr>
+<tr class="odd">
+<td>author</td>
+<td>Pembuat dokumen, bisa diisi dengan tulisan</td>
+</tr>
+</tbody>
+</table></li>
+<li><p><strong>Format</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 92%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>format</td>
+<td>Untuk mengatur output yang dihasilkan ketikan melakukan render dari quarto markdown, pilihan yang dapat diisi adalah pdf, html &amp; word</td>
+</tr>
+</tbody>
+</table></li>
+<li><p><strong><em>Table of Contents</em></strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 93%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>toc</td>
+<td>Untuk mengatur apakah akan dibuatkan table of content, bisa diisi dengan True/False</td>
+</tr>
+<tr class="even">
+<td>toc-depth</td>
+<td>Untuk mengatur seberapa banyak bentukan header yang akan ditampilkan pada TOC. Bisa diisi dengan angka, jika diisi dengan 2, berarti akan ditampilkan TOC sampai dengan header 2</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+<!-- -->
+<ul>
+<li><p><strong><em>Execution</em></strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 90%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>echo</td>
+<td><p>Untuk mengatur tampilan dari chunk kode akan ditampilkan atau tidak, walaupun kode pada chunknya tetap dijalankan.</p>
+<ul>
+<li><p><em>true (default)</em> -&gt; Tampilan chunk akan ditampilkan</p></li>
+<li><p><em>false</em> -&gt; Tampilan chunk tidak akan ditampilkan</p></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td><p>Untuk mengatur apakah <em>warning message</em> dari kode ataupun chunk akan ditampilkan atau tidak.</p>
+<ul>
+<li><p><em>true (default)</em> -&gt; Tampilan chunk akan ditampilkan</p></li>
+<li><p><em>false</em> -&gt; Tampilan chunk tidak akan ditampilkan</p></li>
+</ul></td>
+</tr>
+</tbody>
+</table></li>
+<li><p><strong><em>Figures</em></strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 84%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>fig-align</td>
+<td>Untuk mengatur posisi dari <em>figure</em> yang ditampilkan, bisa diisi dengan <em>left, right</em> atau <em>center</em></td>
+</tr>
+<tr class="even">
+<td>fig-cap-location</td>
+<td>Untuk mengatur posisi <em>caption,</em> bisa diisi dengan <em>top, bottom</em> atau <em>margin</em></td>
+</tr>
+<tr class="odd">
+<td>fig-width</td>
+<td>Untuk mengatur lebar</td>
+</tr>
+<tr class="even">
+<td>fig-height</td>
+<td>Untuk mengatur tinggi</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+<p>Contoh header YAML dalam dokumen Quarto:</p>
+<pre><code>---
+title: "Analisis Data dengan Quarto"
+author: "Team Algoritma"
+date: "2023-09-03"
+format: 
+    html: 
+      toc: true
+execute: 
+  echo: True
+  warning: false
+---</code></pre>
+<p>Untuk referensi yang lebih lengkapnya bisa merujuk ke <a href="https://quarto.org/docs/reference/formats/html.html">dokumentasi berikut ini</a>.</p>
+</section>
+<section id="render-quarto-markdown" class="level2">
+<h2 class="anchored" data-anchor-id="render-quarto-markdown"><em>Render</em> Quarto Markdown</h2>
+<p>Untuk menampilkan hasil dari pembuatan laporan dengan menggunakan Quarto Markdown, terdapat tombol <strong><em>Render</em></strong>.</p>
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a>display(Image(filename<span class="op">=</span><span class="st">"assets/rstudio-render.png"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="Integration%20R%20Quarto%20&amp;%20Python%20Language%20for%20Dynamic%20Reproting_files/figure-html/cell-56-output-1.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="dynamic-reporting" class="level1">
+<h1><em>Dynamic Reporting</em></h1>
+<p><em>Dynamic reporting</em> adalah teknik atau metode pembuatan laporan yang memungkinkan konten laporan berubah secara dinamis berdasarkan data atau masukan terbaru. Ini berarti laporan tersebut secara otomatis diperbarui dengan data baru atau dengan parameter yang berbeda tanpa perlu mengedit atau membuat laporan baru dari awal.</p>
+<section id="pemanfaatan-inline-code" class="level2">
+<h2 class="anchored" data-anchor-id="pemanfaatan-inline-code">Pemanfaatan <em>Inline Code</em></h2>
+<p><em>Inline code</em> adalah kode singkat yang disisipkan langsung di dalam teks atau paragraf dalam sebuah dokumen atau laporan, dan biasanya digunakan untuk menampilkan hasil dari suatu ekspresi atau perhitungan secara langsung dalam teks. Ini sangat umum digunakan dalam dokumen Markdown, R Markdown, Quarto, dan alat lain yang mendukung laporan dinamis.</p>
+<p>Untuk memanfaatkan <em>inline code</em>, format yang bisa digunakan adalah Ellipsis. Dari format tersebut, dapat diisi dengan berbagai macam syntax dari chunk sebelumnya untuk digabungkan dengan teks ataupun narasi yang dipersiapkan.</p>
+<p>Berikut adalah beberapa contoh pemanfaatan <em>inline code</em>,</p>
+<p><strong>1. Menggunakan Variabel Python </strong></p>
+<p>Variabel yang digunakan untuk menyimpan sebuah nilai pada kode bisa langsung disisipkan ke dalam teks ataupun narasi.</p>
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Contoh kode</span></span>
+<span id="cb95-2"><a href="#cb95-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb95-3"><a href="#cb95-3" aria-hidden="true" tabindex="-1"></a>radius <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb95-4"><a href="#cb95-4" aria-hidden="true" tabindex="-1"></a>luas <span class="op">=</span> math.pi <span class="op">*</span> radius<span class="op">**</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Penulisan narasi untuk menampilkan variabel dari chunk kode:</p>
+<blockquote class="blockquote">
+<p>Luas lingkaran dengan radius 5 adalah <code>{bahasa} luas</code> unit persegi.</p>
+</blockquote>
+<p>Hasil dari penulisan narasi di atas:</p>
+<blockquote class="blockquote">
+<p>Luas lingkaran dengan radius 5 adalah 78.54 unit persegi.</p>
+</blockquote>
+<p><strong>2. Menggunakan Informasi Kolom DataFrame</strong></p>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>nilai_siswa <span class="op">=</span> {</span>
+<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Nama'</span>: [<span class="st">'Andi'</span>, <span class="st">'Budi'</span>, <span class="st">'Citra'</span>, <span class="st">'Dewi'</span>],</span>
+<span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Matematika'</span>: [<span class="dv">85</span>, <span class="dv">78</span>, <span class="dv">92</span>, <span class="dv">88</span>],</span>
+<span id="cb96-4"><a href="#cb96-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Bahasa Inggris'</span>: [<span class="dv">90</span>, <span class="dv">85</span>, <span class="dv">88</span>, <span class="dv">91</span>],</span>
+<span id="cb96-5"><a href="#cb96-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'IPA'</span>: [<span class="dv">88</span>, <span class="dv">80</span>, <span class="dv">85</span>, <span class="dv">89</span>]</span>
+<span id="cb96-6"><a href="#cb96-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb96-7"><a href="#cb96-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-8"><a href="#cb96-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb96-9"><a href="#cb96-9" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(nilai_siswa)</span>
+<span id="cb96-10"><a href="#cb96-10" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.set_index(<span class="st">'Nama'</span>)</span>
+<span id="cb96-11"><a href="#cb96-11" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Matematika</th>
+<th data-quarto-table-cell-role="th">Bahasa Inggris</th>
+<th data-quarto-table-cell-role="th">IPA</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Nama</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Andi</td>
+<td>85</td>
+<td>90</td>
+<td>88</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Budi</td>
+<td>78</td>
+<td>85</td>
+<td>80</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Citra</td>
+<td>92</td>
+<td>88</td>
+<td>85</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Dewi</td>
+<td>88</td>
+<td>91</td>
+<td>89</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Rata-rata'</span>] <span class="op">=</span> df.mean(axis<span class="op">=</span><span class="dv">1</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Penulisan narasi untuk menampilkan variabel dari chunk kode:</p>
+<blockquote class="blockquote">
+<p>Rata-rata nilai tertinggi yang dicapai adalah <code>{bahasa} round(df['Rata-rata'].max(), 2)</code>, sementara yang terendah adalah <code>{bahasa} df['Rata-rata'].min()</code>.</p>
+</blockquote>
+<p>Hasil dari penulisan narasi di atas:</p>
+<blockquote class="blockquote">
+<p>Rata-rata nilai tertinggi yang dicapai adalah 89.33, sementara yang terendah adalah 81.0.</p>
+</blockquote>
+<p><strong>3. Menggabungkan Dengan Stuktur Kontrol</strong></p>
+<p><em>Inline code</em> juga berguna untuk membuat teks dinamis yang berubah sesuai dengan nilai atau kondisi tertentu.</p>
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a>total_pendapatan <span class="op">=</span> <span class="dv">15000</span></span>
+<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a>target_pendapatan <span class="op">=</span> <span class="dv">12000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Penulisan narasi untuk menampilkan variabel dari chunk kode:</p>
+<blockquote class="blockquote">
+<p>Tahun ini, kita telah mencapai <code>{bahasa} "target" if total_pendapatan &gt;= target_pendapatan else "belum mencapai target"</code> pendapatan.</p>
+</blockquote>
+<p>Hasil dari penulisan narasi di atas:</p>
+<blockquote class="blockquote">
+<p>Tahun ini, kita telah mencapai target pendapatan.</p>
+</blockquote>
+</section>
+<section id="exporting-dynamic-reporting" class="level2">
+<h2 class="anchored" data-anchor-id="exporting-dynamic-reporting"><em>Exporting Dynamic Reporting</em></h2>
+<p>Hasil dari pembuatan <em>dymanic reporting</em> dari Quarto Markdown bisa diekspor ke berbagai format seperti HTML, PDF, ataupun Word. Untuk melakukan hal tersebut, pada bagian YAML bisa ditambahkan pada bagian <code>format</code>, bentuk file apa yang ingin dihasilkan. Hasil ekspor dari dokumen tidak hanya terbatas ke satu bentukan saja, melainkan bisa diberikan beberapa format yang diinginkan secara bersamaan.</p>
+<ul>
+<li><strong>HTML</strong></li>
+</ul>
+<p>Formal HTML merupakan salah satu format yang cukup sering digunakan ketika dari file bahasa pemograman ingin diubah menjadi format yang bisa digunakan oleh siapa saja. Maka dari itu, format HTML menjadi salah satu hal yang akan dimanfaatkan oleh Quarto Markdown untuk menyajikan laporan yang sudah dibuat, agar dapat dibaca oleh siapa saja.</p>
+<p>Untuk mengatur hasil dari Quarto Markdown menjadi HTML, pada pengaturan YAML bisa ditambahan <code>format</code> atau bisa mengikuti contoh di bawah ini.</p>
+<p>Sedangkan jika ada pengaturan tambahan yang ingin dilakukan untuk hasil HTML, bisa menambahkan pengaturannya pada bagian bawah <code>format</code> atau bisa mengikuti contoh di bawah ini.</p>
+<p>Untuk referensi yang lebih lengkapnya bisa merujuk ke <a href="https://quarto.org/docs/output-formats/html-basics.html">dokumentasi berikut ini</a>.</p>
+<ul>
+<li><strong>Word</strong></li>
+</ul>
+<p>Selain dari format HTML, salah satu format yang dapat dihasilkan dari Quarto adalah format Word (.docx). Format ini mungkin jauh lebih sering digunakan ataupun lumrah dikenal oleh banyak orang.</p>
+<p>Untuk mengatur hasil dari Quarto Markdown menjadi Word, pada pengaturan YAML bisa ditambahan <code>format</code> atau bisa mengikuti contoh di bawah ini.</p>
+<p>Sedangkan jika ada pengaturan tambahan yang ingin dilakukan untuk hasil Word, bisa menambahkan pengaturannya pada bagian bawah <code>format</code> atau bisa mengikuti contoh di bawah ini.</p>
+<p>Salah satu keuntungan ataupun kemudahan yang berusaha disediakan oleh Quarto Markdown ketika ingin menghasilkan laporan dalam bentukan tertentu, Quarto juga dapat mengikuti format ataupun <em>template</em> file Word yang sudah pernah dibuat.</p>
+<p>Untuk referensi yang lebih lengkapnya bisa merujuk ke <a href="https://quarto.org/docs/output-formats/ms-word-templates.html">dokumentasi berikut ini</a>.</p>
+<ul>
+<li><strong>PDF</strong></li>
+</ul>
+<p>Format lainnya yang dapat dihasilkan oleh Quarto adalah format PDF.</p>
+<p>Untuk mengatur hasil dari Quarto Markdown menjadi PDF, pada pengaturan YAML bisa ditambahan <code>format</code> atau bisa mengikuti contoh di bawah ini.</p>
+<p>Sedangkan jika ada pengaturan tambahan yang ingin dilakukan untuk hasil PDF, bisa menambahkan pengaturannya pada bagian bawah <code>format</code> atau bisa mengikuti contoh di bawah ini.</p>
+<p>Untuk referensi yang lebih lengkapnya bisa merujuk ke <a href="https://quarto.org/docs/output-formats/pdf-basics.html">dokumentasi berikut ini</a>.</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

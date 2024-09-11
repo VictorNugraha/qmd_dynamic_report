@@ -8,7 +8,7 @@
 
 <meta name="author" content="Victor Nugraha">
 
-<title>My document</title>
+<title>Integration R Quarto &amp; Python Language for Dynamic Reproting</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -79,12 +79,60 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Integration-R-Quarto---Python-Language-for-Dynamic-Reproting.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#pendahuluan" id="toc-pendahuluan" class="nav-link active" data-scroll-target="#pendahuluan">Pendahuluan</a>
+  <ul class="collapse">
+  <li><a href="#inline-code-dynamic-reporting" id="toc-inline-code-dynamic-reporting" class="nav-link" data-scroll-target="#inline-code-dynamic-reporting"><em>Inline Code Dynamic Reporting</em></a></li>
+  <li><a href="#integrasi-antara-r-python" id="toc-integrasi-antara-r-python" class="nav-link" data-scroll-target="#integrasi-antara-r-python">Integrasi antara R &amp; Python</a></li>
+  <li><a href="#tujuan-pembelajaran" id="toc-tujuan-pembelajaran" class="nav-link" data-scroll-target="#tujuan-pembelajaran">Tujuan Pembelajaran</a></li>
+  </ul></li>
+  <li><a href="#dasar-r-studio-bahasa-python" id="toc-dasar-r-studio-bahasa-python" class="nav-link" data-scroll-target="#dasar-r-studio-bahasa-python">Dasar R Studio &amp; Bahasa Python</a>
+  <ul class="collapse">
+  <li><a href="#perkenalan-ke-software-rstudio" id="toc-perkenalan-ke-software-rstudio" class="nav-link" data-scroll-target="#perkenalan-ke-software-rstudio">Perkenalan ke <em>Software</em> RStudio</a>
+  <ul class="collapse">
+  <li><a href="#komponen-ui-rstudio" id="toc-komponen-ui-rstudio" class="nav-link" data-scroll-target="#komponen-ui-rstudio">Komponen UI RStudio</a></li>
+  <li><a href="#komponen-tab-files-rstudio" id="toc-komponen-tab-files-rstudio" class="nav-link" data-scroll-target="#komponen-tab-files-rstudio">Komponen <em>Tab Files</em> RStudio</a></li>
+  </ul></li>
+  <li><a href="#integrasi-antara-python-rstudio" id="toc-integrasi-antara-python-rstudio" class="nav-link" data-scroll-target="#integrasi-antara-python-rstudio">Integrasi antara Python &amp; RStudio</a></li>
+  <li><a href="#perkenalan-ke-bahasa-python" id="toc-perkenalan-ke-bahasa-python" class="nav-link" data-scroll-target="#perkenalan-ke-bahasa-python">Perkenalan ke bahasa Python</a>
+  <ul class="collapse">
+  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables"><em>Variables</em></a></li>
+  <li><a href="#tipe-data-python" id="toc-tipe-data-python" class="nav-link" data-scroll-target="#tipe-data-python">Tipe Data Python</a></li>
+  <li><a href="#struktur-kontrol-if-else" id="toc-struktur-kontrol-if-else" class="nav-link" data-scroll-target="#struktur-kontrol-if-else">Struktur Kontrol <code>if-else</code></a></li>
+  </ul></li>
+  <li><a href="#pemprosesan-data-manipulasi-data-dengan-pandas" id="toc-pemprosesan-data-manipulasi-data-dengan-pandas" class="nav-link" data-scroll-target="#pemprosesan-data-manipulasi-data-dengan-pandas">Pemprosesan Data &amp; Manipulasi Data Dengan Pandas</a>
+  <ul class="collapse">
+  <li><a href="#persiapan-library" id="toc-persiapan-library" class="nav-link" data-scroll-target="#persiapan-library">Persiapan <em>Library</em></a></li>
+  <li><a href="#pandas-library" id="toc-pandas-library" class="nav-link" data-scroll-target="#pandas-library">Pandas <em>Library</em></a></li>
+  <li><a href="#membaca-dataframe" id="toc-membaca-dataframe" class="nav-link" data-scroll-target="#membaca-dataframe">Membaca <em>DataFrame</em></a></li>
+  <li><a href="#persiapan-data" id="toc-persiapan-data" class="nav-link" data-scroll-target="#persiapan-data">Persiapan Data</a></li>
+  <li><a href="#conditional-subsetting" id="toc-conditional-subsetting" class="nav-link" data-scroll-target="#conditional-subsetting"><em>Conditional Subsetting</em></a></li>
+  <li><a href="#aggregasi-data" id="toc-aggregasi-data" class="nav-link" data-scroll-target="#aggregasi-data">Aggregasi Data</a></li>
+  </ul></li>
+  <li><a href="#pembuatan-sisualisasi-sederhana-dengan-matplotlib" id="toc-pembuatan-sisualisasi-sederhana-dengan-matplotlib" class="nav-link" data-scroll-target="#pembuatan-sisualisasi-sederhana-dengan-matplotlib">Pembuatan Sisualisasi Sederhana Dengan <code>matplotlib</code></a></li>
+  </ul></li>
+  <li><a href="#format-file-quarto-markdown" id="toc-format-file-quarto-markdown" class="nav-link" data-scroll-target="#format-file-quarto-markdown">Format File Quarto Markdown</a>
+  <ul class="collapse">
+  <li><a href="#perbedaan-quarto-dengan-r-markdown" id="toc-perbedaan-quarto-dengan-r-markdown" class="nav-link" data-scroll-target="#perbedaan-quarto-dengan-r-markdown">Perbedaan Quarto dengan R Markdown</a></li>
+  <li><a href="#perkenalan-ke-yaml" id="toc-perkenalan-ke-yaml" class="nav-link" data-scroll-target="#perkenalan-ke-yaml"><strong>Perkenalan ke YAML</strong></a></li>
+  <li><a href="#render-quarto-markdown" id="toc-render-quarto-markdown" class="nav-link" data-scroll-target="#render-quarto-markdown"><strong><em>Render</em></strong> <strong>Quarto Markdown</strong></a></li>
+  </ul></li>
+  <li><a href="#dynamic-reporting" id="toc-dynamic-reporting" class="nav-link" data-scroll-target="#dynamic-reporting"><strong><em>Dynamic Reporting</em></strong></a>
+  <ul class="collapse">
+  <li><a href="#pemanfaatan-inline-code" id="toc-pemanfaatan-inline-code" class="nav-link" data-scroll-target="#pemanfaatan-inline-code"><strong>Pemanfaatan <em>Inline Code</em></strong></a></li>
+  <li><a href="#exporting-dynamic-reporting" id="toc-exporting-dynamic-reporting" class="nav-link" data-scroll-target="#exporting-dynamic-reporting"><strong><em>Exporting Dynamic Reporting</em></strong></a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Integration R Quarto &amp; Python Language for Dynamic Reproting.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
+</div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">My document</h1>
+<h1 class="title">Integration R Quarto &amp; Python Language for Dynamic Reproting</h1>
 </div>
 
 
@@ -155,6 +203,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Dynamic Reporting
 <ul>
 <li>Pemanfaatan <em>inline code</em></li>
+<li>Mengatur tampilan laporan</li>
 <li><em>Exporting dynamic reporting</em></li>
 </ul></li>
 </ul>
@@ -328,9 +377,9 @@ conda activate myenv</code></pre>
 </section>
 </section>
 </section>
-<section id="bentuk-data-python" class="level3">
-<h3 class="anchored" data-anchor-id="bentuk-data-python">Bentuk Data Python</h3>
-<p>Pada Python terdapat beberapa bentukan data berdasarkan peruntuhannya. Berikut beberapa jenis tipe data pada python:</p>
+<section id="tipe-data-python" class="level3">
+<h3 class="anchored" data-anchor-id="tipe-data-python">Tipe Data Python</h3>
+<p>Pada Python terdapat beberapa tipe data berdasarkan peruntuhannya. Berikut beberapa jenis tipe data pada python:</p>
 <ol type="1">
 <li><strong><em>String</em></strong></li>
 </ol>
@@ -1432,10 +1481,12 @@ Name: Quarter, dtype: period[Q-DEC]</code></pre>
 <span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Pembuatan visualisasi dengan bantuan library <code>matplotlib</code>, fungsi yang dapat digunakan adalah</p>
 <ul>
-<li>Line Plot: <code>.plot()</code></li>
-<li>Bar Plot: <code>.plot(kind= 'bar'/'barh')</code></li>
+<li>Line Plot: <code>plt.plot(x, y)</code></li>
+<li>Bar Plot: <code>plt.bar(categories, values)</code></li>
+<li>Scatter Plot: <code>plt.scatter(x, y)</code></li>
+<li>Histogram: <code>plt.hist(data, bins=10)</code></li>
+<li>Box Plot: <code>plt.boxplot(data)</code></li>
 </ul>
-<p>Sedangkan untuk menampilkan hasil dari visualnya bisa menggunakan fungsi <code>plt.show()</code></p>
 <div class="sourceCode cell-code" id="cb89"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mempersiapkan dataframe</span></span>
 <span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a>frekuensi <span class="op">=</span> pd.crosstab(index <span class="op">=</span> sales[<span class="st">'Quarter'</span>],</span>
 <span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a>                        columns <span class="op">=</span> <span class="st">'Frekuensi'</span>, </span>
@@ -1465,21 +1516,21 @@ Name: Quarter, dtype: period[Q-DEC]</code></pre>
 <ol type="1">
 <li><strong>Dukungan Multi-bahasa yang Lebih Baik</strong></li>
 </ol>
-<p>Walaupun R Markdown juga memiliki kapabilitas untuk digunakan dengan bahasa selain R, akan tetapi pemanfaatan Quarto Markdown untuk menjalankan bahasa pemograman lainnya selain R, hal itu dikarenakan Quarto Markdown memang mendukung untuk menjalankan bahasa Python, Julia, dan Observable (JavaScript) secara <em>native</em>, tidak seperti R Markdown yang secara khusus dipersiapkan untuk bahasa R saja ketika pertama kali dikembangkan.</p>
+<p>Walaupun R Markdown juga memiliki kapabilitas untuk digunakan dengan bahasa selain R, akan tetapi pemanfaatan Quarto Markdown untuk menjalankan bahasa pemograman lainnya selain R, hal itu dikarenakan Quarto Markdown memang mendukung untuk menjalankan bahasa Python, Julia, dan Observable (JavaScript) secara native, tidak seperti R Markdown yang secara khusus dipersiapkan untuk bahasa R saja ketika pertama kali dikembangkan.</p>
 <ol start="2" type="1">
-<li><strong>Fitur Modern <em>What You See Is What You Mean</em></strong></li>
+<li><strong>Fitur Modern What You See Is What You Mean</strong></li>
 </ol>
-<p>Selain dari kemampuannya untuk bekerja dengan banyak bahasa, Quarto juga memiliki pengembangan pada proses pembuatan dokumen yang memanfaatkan konsep <em>What You See Is What You Mean</em>.</p>
+<p>Selain dari kemampuannya untuk bekerja dengan banyak bahasa, Quarto juga memiliki pengembangan pada proses pembuatan dokumen yang memanfaatkan konsep <em>What You See Is What You Mean.</em></p>
 <p><em>What You See Is What You Mean</em> (WYSIWYM) adalah konsep dalam desain antarmuka pengguna dan pembuatan konten yang berfokus pada penyediaan umpan balik visual yang langsung dan akurat tentang struktur semantik dari informasi yang sedang dibuat atau diedit oleh pengguna. Dengan adanya konsep ini para pengguna harapannya akan lebih merasa produktif.</p>
 <ul>
 <li><strong>Mengganti Tampilan</strong></li>
 </ul>
-<p>Dokumen markdown dapat diedit dalam mode sumber (<em>source</em>) atau <em>visual.</em> Untuk beralih ke mode visual pada dokumen tertentu, gunakan tombol <em>Source</em> atau <em>Visual</em> di bagian kiri atas toolbar dokumen (atau sebagai alternatif, gunakan pintasan keyboard <code>⌃⇧ F4</code>):</p>
+<p>Dokumen markdown dapat diedit dalam mode sumber (source) atau visual. Untuk beralih ke mode visual pada dokumen tertentu, gunakan tombol Source atau Visual di bagian kiri atas toolbar dokumen (atau sebagai alternatif, gunakan pintasan keyboard ⌃⇧ F4):</p>
 <p>Gambar cuplikan jendela RStudio yang menunjukkan bilah opsi di bagian atas dokumen Quarto.</p>
 <div class="sourceCode cell-code" id="cb90"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a>display(Image(filename<span class="op">=</span><span class="st">"assets/visual-editing-switch-modes.png"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="Integration%20R%20Quarto%20&amp;%20Python%20Language%20for%20Dynamic%20Reproting_files/figure-html/cell-53-output-1.png" class="img-fluid"></p>
 <ul>
-<li><strong><em>Keyboard Shortcuts</em></strong></li>
+<li><strong>Keyboard Shortcuts</strong></li>
 </ul>
 <p>Dengan memanfaatkan mode visual, pengguna Quarto Markdown diberikan tambahan fitur untuk menggunakan <em>keyboard shortcut</em> tanpa harus menggunakan pengaturan markdown yang relatif lebih konvensional.</p>
 <table class="caption-top table">
@@ -1520,20 +1571,21 @@ Name: Quarter, dtype: period[Q-DEC]</code></pre>
 <p>Toolbar editor mencakup tombol-tombol untuk perintah pemformatan yang paling sering digunakan:</p>
 <div class="sourceCode cell-code" id="cb91"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>display(Image(filename<span class="op">=</span><span class="st">"assets/visual-editing-switch-modes.png"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="Integration%20R%20Quarto%20&amp;%20Python%20Language%20for%20Dynamic%20Reproting_files/figure-html/cell-54-output-1.png" class="img-fluid"></p>
+<p><img src="Integration%2520R%2520Quarto%2520&amp;%2520Python%2520Language%2520for%2520Dynamic%2520Reproting_files/figure-html/cell-54-output-1.png" class="img-fluid"></p>
 <p>Perintah tambahan tersedia di menu Format, Insert, dan Table.</p>
 <div class="sourceCode cell-code" id="cb92"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>display(Image(filename<span class="op">=</span><span class="st">"assets/visual-editing-insert-menu.png"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="Integration%20R%20Quarto%20&amp;%20Python%20Language%20for%20Dynamic%20Reproting_files/figure-html/cell-55-output-1.png" class="img-fluid"></p>
 </section>
 <section id="perkenalan-ke-yaml" class="level2">
-<h2 class="anchored" data-anchor-id="perkenalan-ke-yaml">Perkenalan ke YAML</h2>
+<h2 class="anchored" data-anchor-id="perkenalan-ke-yaml"><strong>Perkenalan ke YAML</strong></h2>
 <p><strong>YAML</strong>, singkatan dari <em>“YAML Ain’t Markup Language”</em> (sebelumnya <em>“Yet Another Markup Language”</em>), adalah format data serialisasi yang dirancang untuk menjadi mudah dibaca dan ditulis oleh manusia.</p>
 <p>YAML juga digunakan dalam dokumen konfigurasi untuk alat-alat seperti Quarto dan RMarkdown (di bagian header YAML) untuk menentukan metadata dokumen, seperti judul, penulis, dan format output.Berikut adalah beberapa pengaturan yang biasanya digunakan pada YAML</p>
 <ul>
 <li><p><strong><em>Title &amp; Author</em></strong></p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 19%">
-<col style="width: 79%">
+<col style="width: 21%">
+<col style="width: 78%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -1553,8 +1605,8 @@ Name: Quarter, dtype: period[Q-DEC]</code></pre>
 <li><p><strong>Format</strong></p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 7%">
-<col style="width: 92%">
+<col style="width: 8%">
+<col style="width: 91%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -1586,7 +1638,7 @@ Name: Quarter, dtype: period[Q-DEC]</code></pre>
 <li><p><strong><em>Execution</em></strong></p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 9%">
+<col style="width: 10%">
 <col style="width: 90%">
 </colgroup>
 <tbody>
@@ -1649,21 +1701,21 @@ execute:
 <p>Untuk referensi yang lebih lengkapnya bisa merujuk ke <a href="https://quarto.org/docs/reference/formats/html.html">dokumentasi berikut ini</a>.</p>
 </section>
 <section id="render-quarto-markdown" class="level2">
-<h2 class="anchored" data-anchor-id="render-quarto-markdown"><em>Render</em> Quarto Markdown</h2>
+<h2 class="anchored" data-anchor-id="render-quarto-markdown"><strong><em>Render</em></strong> <strong>Quarto Markdown</strong></h2>
 <p>Untuk menampilkan hasil dari pembuatan laporan dengan menggunakan Quarto Markdown, terdapat tombol <strong><em>Render</em></strong>.</p>
 <div class="sourceCode cell-code" id="cb94"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a>display(Image(filename<span class="op">=</span><span class="st">"assets/rstudio-render.png"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="Integration%20R%20Quarto%20&amp;%20Python%20Language%20for%20Dynamic%20Reproting_files/figure-html/cell-56-output-1.png" class="img-fluid"></p>
 </section>
 </section>
 <section id="dynamic-reporting" class="level1">
-<h1><em>Dynamic Reporting</em></h1>
+<h1><strong><em>Dynamic Reporting</em></strong></h1>
 <p><em>Dynamic reporting</em> adalah teknik atau metode pembuatan laporan yang memungkinkan konten laporan berubah secara dinamis berdasarkan data atau masukan terbaru. Ini berarti laporan tersebut secara otomatis diperbarui dengan data baru atau dengan parameter yang berbeda tanpa perlu mengedit atau membuat laporan baru dari awal.</p>
 <section id="pemanfaatan-inline-code" class="level2">
-<h2 class="anchored" data-anchor-id="pemanfaatan-inline-code">Pemanfaatan <em>Inline Code</em></h2>
+<h2 class="anchored" data-anchor-id="pemanfaatan-inline-code"><strong>Pemanfaatan <em>Inline Code</em></strong></h2>
 <p><em>Inline code</em> adalah kode singkat yang disisipkan langsung di dalam teks atau paragraf dalam sebuah dokumen atau laporan, dan biasanya digunakan untuk menampilkan hasil dari suatu ekspresi atau perhitungan secara langsung dalam teks. Ini sangat umum digunakan dalam dokumen Markdown, R Markdown, Quarto, dan alat lain yang mendukung laporan dinamis.</p>
 <p>Untuk memanfaatkan <em>inline code</em>, format yang bisa digunakan adalah Ellipsis. Dari format tersebut, dapat diisi dengan berbagai macam syntax dari chunk sebelumnya untuk digabungkan dengan teks ataupun narasi yang dipersiapkan.</p>
 <p>Berikut adalah beberapa contoh pemanfaatan <em>inline code</em>,</p>
-<p><strong>1. Menggunakan Variabel Python </strong></p>
+<p><strong>1. Menggunakan Variabel Python</strong></p>
 <p>Variabel yang digunakan untuk menyimpan sebuah nilai pada kode bisa langsung disisipkan ke dalam teks ataupun narasi.</p>
 <div class="sourceCode cell-code" id="cb95"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Contoh kode</span></span>
 <span id="cb95-2"><a href="#cb95-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -1675,7 +1727,7 @@ execute:
 </blockquote>
 <p>Hasil dari penulisan narasi di atas:</p>
 <blockquote class="blockquote">
-<p>Luas lingkaran dengan radius 5 adalah 78.54 unit persegi.</p>
+<p>Luas lingkaran dengan radius 5 adalah 78.53981633974483 unit persegi.</p>
 </blockquote>
 <p><strong>2. Menggunakan Informasi Kolom DataFrame</strong></p>
 <div class="sourceCode cell-code" id="cb96"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>nilai_siswa <span class="op">=</span> {</span>
@@ -1751,15 +1803,15 @@ execute:
 <span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a>target_pendapatan <span class="op">=</span> <span class="dv">12000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Penulisan narasi untuk menampilkan variabel dari chunk kode:</p>
 <blockquote class="blockquote">
-<p>Tahun ini, kita telah mencapai <code>{bahasa} "target" if total_pendapatan &gt;= target_pendapatan else "belum mencapai target"</code> pendapatan.</p>
+<p>Tahun ini, kita <code>{bahasa} "telah mencapai target" if total_pendapatan &gt;= target_pendapatan else "belum mencapai target"</code> pendapatan</p>
 </blockquote>
 <p>Hasil dari penulisan narasi di atas:</p>
 <blockquote class="blockquote">
-<p>Tahun ini, kita telah mencapai target pendapatan.</p>
+<p>Tahun ini, kita telah mencapai target pendapatan</p>
 </blockquote>
 </section>
 <section id="exporting-dynamic-reporting" class="level2">
-<h2 class="anchored" data-anchor-id="exporting-dynamic-reporting"><em>Exporting Dynamic Reporting</em></h2>
+<h2 class="anchored" data-anchor-id="exporting-dynamic-reporting"><strong><em>Exporting Dynamic Reporting</em></strong></h2>
 <p>Hasil dari pembuatan <em>dymanic reporting</em> dari Quarto Markdown bisa diekspor ke berbagai format seperti HTML, PDF, ataupun Word. Untuk melakukan hal tersebut, pada bagian YAML bisa ditambahkan pada bagian <code>format</code>, bentuk file apa yang ingin dihasilkan. Hasil ekspor dari dokumen tidak hanya terbatas ke satu bentukan saja, melainkan bisa diberikan beberapa format yang diinginkan secara bersamaan.</p>
 <ul>
 <li><strong>HTML</strong></li>

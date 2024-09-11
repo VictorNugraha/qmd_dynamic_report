@@ -4,6 +4,8 @@ author: "Victor Nugraha"
 format: 
     html: 
       toc: true
+    docx: 
+      toc: true
 execute: 
   echo: True
   warning: false
@@ -239,9 +241,9 @@ import keyword
 keyword.kwlist
 ```
 
-### Bentuk Data Python
+### Tipe Data Python
 
-Pada Python terdapat beberapa bentukan data berdasarkan peruntuhannya. Berikut beberapa jenis tipe data pada python:
+Pada Python terdapat beberapa tipe data berdasarkan peruntuhannya. Berikut beberapa jenis tipe data pada python:
 
 1.  ***String***
 
@@ -836,7 +838,6 @@ Dengan memanfaatkan mode visual, pengguna Quarto Markdown diberikan tambahan fit
 
 Untuk referensi yang lebih lengkapnya bisa merujuk ke [dokumentasi berikut ini](https://quarto.org/docs/visual-editor/options.html#shortcuts).
 
-
 -   ***Editor Toolbar***
 
 Toolbar editor mencakup tombol-tombol untuk perintah pemformatan yang paling sering digunakan:
@@ -853,10 +854,9 @@ Perintah tambahan tersedia di menu Format, Insert, dan Table.
 display(Image(filename="assets/visual-editing-insert-menu.png"))
 ```
 
-
 ## **Perkenalan ke YAML**
 
-**YAML**, singkatan dari *\"YAML Ain\'t Markup Language\"* (sebelumnya *\"Yet Another Markup Language\"*), adalah format data serialisasi yang dirancang untuk menjadi mudah dibaca dan ditulis oleh manusia.
+**YAML**, singkatan dari *"YAML Ain't Markup Language"* (sebelumnya *"Yet Another Markup Language"*), adalah format data serialisasi yang dirancang untuk menjadi mudah dibaca dan ditulis oleh manusia.
 
 YAML juga digunakan dalam dokumen konfigurasi untuk alat-alat seperti Quarto dan RMarkdown (di bagian header YAML) untuk menentukan metadata dokumen, seperti judul, penulis, dan format output.Berikut adalah beberapa pengaturan yang biasanya digunakan pada YAML
 
@@ -872,36 +872,35 @@ YAML juga digunakan dalam dokumen konfigurasi untuk alat-alat seperti Quarto dan
 
 -   **Format**
 
-    +---------------+---------------------------------------------------------------------------------------------------------------------------------------+
-    | format        | Untuk mengatur output yang dihasilkan ketikan melakukan render dari quarto markdown, pilihan yang dapat diisi adalah pdf, html & word |
-    +---------------+---------------------------------------------------------------------------------------------------------------------------------------+
+    +-----------+---------------------------------------------------------------------------------------------------------------------------------------+
+    | format    | Untuk mengatur output yang dihasilkan ketikan melakukan render dari quarto markdown, pilihan yang dapat diisi adalah pdf, html & word |
+    +-----------+---------------------------------------------------------------------------------------------------------------------------------------+
 
 -   ***Table of Contents***
 
-    +---------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | toc           | Untuk mengatur apakah akan dibuatkan table of content, bisa diisi dengan True/False                                                                                              |
-    +---------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | toc-depth     | Untuk mengatur seberapa banyak bentukan header yang akan ditampilkan pada TOC. Bisa diisi dengan angka, jika diisi dengan 2, berarti akan ditampilkan TOC sampai dengan header 2 |
-    +---------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    +-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | toc       | Untuk mengatur apakah akan dibuatkan table of content, bisa diisi dengan True/False                                                                                              |
+    +-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | toc-depth | Untuk mengatur seberapa banyak bentukan header yang akan ditampilkan pada TOC. Bisa diisi dengan angka, jika diisi dengan 2, berarti akan ditampilkan TOC sampai dengan header 2 |
+    +-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-```{=html}
 <!-- -->
-```
+
 -   ***Execution***
 
-    +---------------+--------------------------------------------------------------------------------------------------------------------+
-    | echo          | Untuk mengatur tampilan dari chunk kode akan ditampilkan atau tidak, walaupun kode pada chunknya tetap dijalankan. |
-    |               |                                                                                                                    |
-    |               | -   *true (default)* -\> Tampilan chunk akan ditampilkan                                                           |
-    |               |                                                                                                                    |
-    |               | -   *false* -\> Tampilan chunk tidak akan ditampilkan                                                              |
-    +---------------+--------------------------------------------------------------------------------------------------------------------+
-    | warning       | Untuk mengatur apakah *warning message* dari kode ataupun chunk akan ditampilkan atau tidak.                       |
-    |               |                                                                                                                    |
-    |               | -   *true (default)* -\> Tampilan chunk akan ditampilkan                                                           |
-    |               |                                                                                                                    |
-    |               | -   *false* -\> Tampilan chunk tidak akan ditampilkan                                                              |
-    +---------------+--------------------------------------------------------------------------------------------------------------------+
+    +------------+--------------------------------------------------------------------------------------------------------------------+
+    | echo       | Untuk mengatur tampilan dari chunk kode akan ditampilkan atau tidak, walaupun kode pada chunknya tetap dijalankan. |
+    |            |                                                                                                                    |
+    |            | -   *true (default)* -\> Tampilan chunk akan ditampilkan                                                           |
+    |            |                                                                                                                    |
+    |            | -   *false* -\> Tampilan chunk tidak akan ditampilkan                                                              |
+    +------------+--------------------------------------------------------------------------------------------------------------------+
+    | warning    | Untuk mengatur apakah *warning message* dari kode ataupun chunk akan ditampilkan atau tidak.                       |
+    |            |                                                                                                                    |
+    |            | -   *true (default)* -\> Tampilan chunk akan ditampilkan                                                           |
+    |            |                                                                                                                    |
+    |            | -   *false* -\> Tampilan chunk tidak akan ditampilkan                                                              |
+    +------------+--------------------------------------------------------------------------------------------------------------------+
 
 -   ***Figures***
 
@@ -970,7 +969,7 @@ Penulisan narasi untuk menampilkan variabel dari chunk kode:
 
 Hasil dari penulisan narasi di atas:
 
-> Luas lingkaran dengan radius 5 adalah 78.54 unit persegi.
+> Luas lingkaran dengan radius 5 adalah `{python} luas` unit persegi.
 
 **2. Menggunakan Informasi Kolom DataFrame**
 
@@ -998,7 +997,7 @@ Penulisan narasi untuk menampilkan variabel dari chunk kode:
 
 Hasil dari penulisan narasi di atas:
 
-> Rata-rata nilai tertinggi yang dicapai adalah 89.33, sementara yang terendah adalah 81.0.
+> Rata-rata nilai tertinggi yang dicapai adalah `{python} round(df['Rata-rata'].max(), 2)`, sementara yang terendah adalah `{python} df['Rata-rata'].min()`.
 
 **3. Menggabungkan Dengan Stuktur Kontrol**
 
@@ -1011,11 +1010,11 @@ target_pendapatan = 12000
 
 Penulisan narasi untuk menampilkan variabel dari chunk kode:
 
-> Tahun ini, kita telah mencapai `{bahasa} "target" if total_pendapatan >= target_pendapatan else "belum mencapai target"` pendapatan.
+> Tahun ini, kita `{bahasa} "telah mencapai target" if total_pendapatan >= target_pendapatan else "belum mencapai target"` pendapatan
 
 Hasil dari penulisan narasi di atas:
 
-> Tahun ini, kita telah mencapai target pendapatan.
+> Tahun ini, kita `{python} "telah mencapai target" if total_pendapatan >= target_pendapatan else "belum mencapai target"` pendapatan
 
 ## ***Exporting Dynamic Reporting***
 
@@ -1052,4 +1051,3 @@ Untuk mengatur hasil dari Quarto Markdown menjadi PDF, pada pengaturan YAML bisa
 Sedangkan jika ada pengaturan tambahan yang ingin dilakukan untuk hasil PDF, bisa menambahkan pengaturannya pada bagian bawah `format` atau bisa mengikuti contoh di bawah ini.
 
 Untuk referensi yang lebih lengkapnya bisa merujuk ke [dokumentasi berikut ini](https://quarto.org/docs/output-formats/pdf-basics.html).
-

@@ -1,0 +1,112 @@
+---
+title: "Laporan Tahunan Penjualan Perusahaan"
+author: "Nama Bapak/Ibu"
+format: 
+    html: 
+      toc: true
+    docx: 
+      toc: true
+    pdf: 
+      include-in-header:
+        - text: |
+            \usepackage{multicol}
+execute: 
+  echo: false
+  warning: false
+jupyter: python3
+---
+
+<style>
+p {
+  text-align: justify;
+}
+</style>
+
+# [SANGGAHAN DAN BATASAN TANGGUNG JAWAB]{style="font-size: 20px; color: darkgreen;"} <span style="display:block; margin-bottom: 3px;"></span> [DISCLAIMER]{style="font-size: 15px; color: green;"}
+
+\begin{multicols}{2}
+
+:::{.columns}
+
+::: {.column width="45%" style="margin-right: 5%"}
+Laporan Tahunan ini memuat pernyataan kondisi keuangan, hasil operasi, kebijakan, proyeksi, rencana, strategi, serta tujuan Perusahaan yang digolongkan sebagai pernyataan ke depan dalam pelaksanaan perundang-undangan yang berlaku, kecuali hal-hal yang bersifat historis. Pernyataanpernyataan tersebut memiliki prospek risiko, ketidakpastian, serta dapat mengakibatkan perkembangan aktual secara material berbeda dari yang dilaporkan.
+
+Pernyataan-pernyataan prospektif dalam Laporan Tahunan ini dibuat berdasarkan berbagai asumsi mengenai kondisi terkini dan kondisi mendatang serta lingkungan bisnis dimana Perusahaan menjalankan kegiatan usaha. Perusahaan tidak menjamin bahwa dokumen-dokumen yang telah dipastikan keabsahannya akan membawa hasilhasil tertentu sesuai harapan.
+:::
+
+\columnbreak
+
+::: {.column width="50%"}
+This Annual Report contains financial condition, operational results, projections, plans, strategies, policies, as well as objectives of the Company, which are classified as forward-looking statements in the implementation of the applicable laws and regulations, excluding historical matters. Such forward-looking statements are subject to known and unknown risks (prospective), uncertainties, and other factors that could cause actual results to differ materially from expected results.
+
+Prospective statements in this Annual Report are prepared based on numerous assumptions concerning current conditions and future events of the Company and the business environment where the Company conducts business. The Company does not guarantee that all information presented herein will bring specific results as expected.
+:::
+:::
+\end{multicols}
+
+\newpage
+
+# [PENJUALAN TAHUNAN]{style="font-size: 20px; color: darkgreen;"} <span style="display:block; margin-bottom: 3px;"></span> [YoY SALES ACHIVEMENT]{style="font-size: 15px; color: green;"}
+
+```{python}
+# import library
+import pandas as pd
+pd.options.display.float_format = '{:,.2f}'.format
+
+# membaca data
+sales = pd.read_csv("data/sales_2021_2022.csv")\
+
+# mengganti nama kolom
+sales.columns = ['Date', 'Quantity Product 1', 'Quantity Product 2', 'Quantity Product 3', 'Quantity Product 4', 'Sales Product 1', 'Sales Product 2', 'Sales Product 3','Sales Product 4']
+
+# mengubah tipe data
+sales['Date'] = pd.to_datetime(sales["Date"], format = "%Y-%m-%d", errors = 'coerce')
+
+# menambahkan kolom
+sales["Year"] = sales["Date"].dt.year
+sales["Quarter"] = sales['Date'].dt.to_period('Q')
+```
+
+```{python}
+# menghitung total quantity
+sales["Total Quantity"] = sales["Quantity Product 1"] + sales["Quantity Product 2"] + sales["Quantity Product 3"] + sales["Quantity Product 4"]
+
+# menghitung total sales
+sales["Total Sales"] = sales["Sales Product 1"] + sales["Sales Product 2"] + sales["Sales Product 3"] + sales["Sales Product 4"]
+
+sales['Total Quantity'] = sales['Total Quantity'].astype("float64")
+```
+
+```{python}
+total_sales = sales[["Total Sales", "Total Quantity", "Year"]].groupby("Year").sum()
+total_sales                 
+# total_sales.style. \
+#             set_table_attributes('style="font-size: 14px; margin-left: auto; margin-right: auto; width: 50%;"').\
+#             set_caption("Laporan Penjualan")
+
+# html_table = total_sales.to_html(classes='table', index=True)
+# 
+# # Wrapping the table in a div for styling
+# html_output = f"""
+# <div style="width: 25%; margin-left: auto; margin-right: auto;">
+#     {html_table}
+# </div>
+# """
+# 
+# from IPython.core.display import display, HTML
+# display(HTML(html_output))
+```
+
+```{python}
+f"{total_sales["Total Quantity"].iloc[1]}"
+```
+
+Selama tahun `{python} total_sales.index[1]`, total penjualan produk dari segi kuantitas tercatat sebanyak `{python} f"{total_sales["Total Quantity"].iloc[1]:,.2f}"` dan untuk total penjualan produk dari segi nominmal tercatat sebanyak `{python} f"{total_sales["Total Sales"].iloc[1]:,.2f}"`.
+
+*pertumbuhan yang kuat* baik dari segi kuantitas maupun total pendapatan. Sepanjang tahun , total produk yang terjual mencapai 120.000 unit, meningkat 20% dibandingkan penjualan tahun 2022 yang hanya sebesar 100.000 unit. Dari segi pendapatan, penjualan tahunan mencapai Rp6.000.000.000, dengan rata-rata harga per unit sebesar Rp50.000. Peningkatan ini didorong oleh kampanye pemasaran yang lebih luas, ekspansi pasar ke wilayah baru, serta peluncuran beberapa varian produk yang diminati konsumen. Selain itu, promosi penjualan musiman dan diskon akhir tahun juga berkontribusi pada pencapaian target yang lebih tinggi. Dengan tren ini, kami optimis dapat mencapai target pertumbuhan yang lebih besar di tahun mendatang.
+
+Dari segi penjualan berdasarkan varian produk, empat varian utama memberikan kontribusi yang berbeda. Produk A menjadi yang terlaris dengan penjualan sebanyak 50.000 unit atau 42% dari total penjualan, menghasilkan pendapatan sebesar Rp2.500.000.000. Produk B terjual sebanyak 30.000 unit, menyumbang 25% dari keseluruhan penjualan dengan nilai pendapatan Rp1.500.000.000. Produk C, yang baru diluncurkan tahun ini, mencapai 20.000 unit penjualan dan memberikan pendapatan sebesar Rp1.000.000.000. Terakhir, Produk D berhasil terjual sebanyak 20.000 unit, menyumbang Rp1.000.000.000. Dengan kinerja yang bervariasi antar varian, strategi pemasaran dan pengembangan produk di masa mendatang akan lebih difokuskan pada produk-produk dengan permintaan tertinggi untuk memaksimalkan potensi penjualan di tahun mendatang.
+
+
+
+

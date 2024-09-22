@@ -6,6 +6,8 @@ format:
       toc: true
     docx: 
       toc: true
+    pdf:
+      toc: true
 execute: 
   echo: True
   warning: false
@@ -166,7 +168,7 @@ materi
 
 #### *Case Sensitive*
 
-Dalam Python, case sensitive berarti bahwa huruf besar dan huruf kecil dianggap berbeda. Ini berlaku pada penamaan variabel, fungsi, dan identifier lainnya. Sebagai contoh, variabel `materi`, `Materi`, dan `MATERI` dianggap sebagai tiga variabel yang berbeda.
+Dalam Python, *case sensitive* berarti bahwa huruf besar dan huruf kecil dianggap berbeda. Ini berlaku pada penamaan variabel, fungsi, dan pengenal lainnya. Sebagai contoh, variabel `materi`, `Materi`, dan `MATERI` dianggap sebagai tiga variabel yang berbeda.
 
 ```{python}
 # Menyimpan nilai ke variabel
@@ -184,7 +186,7 @@ Karena Python peka terhadap huruf besar dan kecil, penting untuk konsisten dalam
 
 #### *Overwrite*
 
-Dalam Python, overwrite terjadi ketika sebuah variabel yang sudah ada diberi nilai baru, sehingga nilai lama variabel tersebut akan digantikan oleh nilai baru.
+Dalam Python, *overwrite* terjadi ketika sebuah variabel yang sudah ada diberi nilai baru, sehingga nilai lama variabel tersebut akan digantikan oleh nilai baru.
 
 Misalnya, jika Anda mendeklarasikan variabel `materi` dengan nilai tertentu, dan kemudian memberikan nilai baru pada variabel `materi`, maka nilai sebelumnya akan hilang, dan variabel `materi` hanya akan menyimpan nilai baru tersebut.
 
@@ -653,6 +655,38 @@ Terdapat 2 macam cara untuk melakukan penghapusan pada nilai duplicate.
 1.  Dengan menambahkan parameter `keep='first'`, maka akan mempertahankan baris teratas dari nilai yang *duplicate*.
 2.  Dengan menambahkan parameter `keep='last'`, maka akan mempertahankan baris terbawah dari nilai yang *duplicate*.
 
+### Slicing
+
+#### **`[]` operator**
+
+Digunakan untuk melakukan subsetting dengan cara mengiris (slicing) index pada dataframe. Formula penulisannya adalah `[start:end]` dengan mengikuti aturan indexing pada python (dimulai dari 0) dimana `start` inclusive dan `end` exclusive.
+
+- start -> inclusif -> urutan index baris masuk ke output
+- end -> eksklusif -> urutan index baris enggak termasuk output
+
+```{python}
+# Pada data, kita ingin mengambil dari urutan ke2-ke4
+sales[1:4]
+```
+
+#### `.loc` dan `.iloc`
+
+Dengan menggunakan `.loc` dan `iloc` kita dapat melakukan pengirisan pada index **baris dan kolom**. 
+
+Perbedaan yang mendasar dari kedua operator ini adalah:
+- `.iloc` merujuk pada lokasi **index** baris atau kolomnya sehingga harus **integer**, sedangkan
+- `.loc` merujuk pada lokasi **nama** baris atau kolomnya
+
+```{python}
+# iloc, mengambil baris 2 & kolom 3
+sales.iloc[1, 2]
+```
+
+```{python}
+# loc, mengambil baris 2 & kolom 3
+sales.loc[1, "Quantity Product 2"]
+```
+
 ### *Conditional Subsetting*
 
 *Conditional subsetting* di `pandas` adalah teknik untuk mengekstrak subset data dari DataFrame atau Series berdasarkan kondisi tertentu. Ini memungkinkan untuk memilih/mengambil data yang memenuhi kriteria spesifik, seperti nilai dalam kolom yang melebihi ambang batas tertentu, teks yang mengandung kata tertentu, atau gabungan dari beberapa kondisi.
@@ -677,7 +711,7 @@ sales[sales['Date'] == "2021-01-1"]
 
 **Additional Information:**
 
-Kita juga dapat menggunakan operator `&` (AND) dan `|` (OR) untuk melakukan subsetting lebih dari 1 kondisi. Misalnya hasil yang ingin diamati adalah data penjualan dari seorang pegawai bernama Moana yang jumlahnya lebih dari 5000, maka dapat menggunakan syntax:
+Terdapat operator `&` (AND) dan `|` (OR) untuk melakukan subsetting lebih dari 1 kondisi. Misalnya hasil yang ingin diamati adalah data penjualan dari seorang pegawai bernama Moana yang jumlahnya lebih dari 5000, maka dapat menggunakan syntax:
 
 ```         
 sales[(sales.salesperson == 'Moana') & (sales.amount > 5000)]
@@ -758,6 +792,30 @@ Sebagai contoh, analisa yang ingin dilakukan adalah menghitung rata-rata penjual
 ```{python}
 # Melakukan perhitungan rata-rata
 sales.groupby('Quarter').mean(numeric_only=True)[['Sales Product 1', 'Sales Product 2', 'Sales Product 3', 'Sales Product 4']]
+```
+
+Selain dari menggunakan crosstab, `groupby` dan `agg` adalah dua fungsi yang dapat dimanfaatkan juga untuk mengelompokkan data dan melakukan agregasi (seperti `sum`, `mean`, `count`, dll.) pada setiap kelompok. Berikut ini penjelasan mengenai cara penggunaannya:
+
+-   `groupby` digunakan untuk mengelompokkan data berdasarkan satu atau lebih kolom.
+
+-   `agg` digunakan setelah `groupby` untuk menerapkan fungsi agregasi (seperti `sum`, `mean`, `min`, `max`, dll.) pada setiap kelompok.
+
+```{python}
+# Membuat DataFrame
+data = {'Kategori': ['A', 'B', 'A', 'B', 'A', 'B'],
+        'Nilai': [10, 20, 30, 40, 50, 60],
+        'Jumlah': [1, 2, 3, 4, 5, 6]}
+
+df = pd.DataFrame(data)
+df
+```
+
+```{python}
+# Group by 'Kategori' dan lakukan agregasi
+df.groupby('Kategori').agg(
+    Total_Nilai=('Nilai', 'sum'),
+    Rata_Rata_Jumlah=('Jumlah', 'mean')
+)
 ```
 
 ## Pembuatan Sisualisasi Sederhana Dengan `matplotlib`
@@ -872,9 +930,9 @@ YAML juga digunakan dalam dokumen konfigurasi untuk alat-alat seperti Quarto dan
 
 -   **Format**
 
-    +-----------+---------------------------------------------------------------------------------------------------------------------------------------+
-    | format    | Untuk mengatur output yang dihasilkan ketikan melakukan render dari quarto markdown, pilihan yang dapat diisi adalah pdf, html & word |
-    +-----------+---------------------------------------------------------------------------------------------------------------------------------------+
+    +----------+---------------------------------------------------------------------------------------------------------------------------------------+
+    | format   | Untuk mengatur output yang dihasilkan ketikan melakukan render dari quarto markdown, pilihan yang dapat diisi adalah pdf, html & word |
+    +----------+---------------------------------------------------------------------------------------------------------------------------------------+
 
 -   ***Table of Contents***
 
@@ -888,19 +946,19 @@ YAML juga digunakan dalam dokumen konfigurasi untuk alat-alat seperti Quarto dan
 
 -   ***Execution***
 
-    +------------+--------------------------------------------------------------------------------------------------------------------+
-    | echo       | Untuk mengatur tampilan dari chunk kode akan ditampilkan atau tidak, walaupun kode pada chunknya tetap dijalankan. |
-    |            |                                                                                                                    |
-    |            | -   *true (default)* -\> Tampilan chunk akan ditampilkan                                                           |
-    |            |                                                                                                                    |
-    |            | -   *false* -\> Tampilan chunk tidak akan ditampilkan                                                              |
-    +------------+--------------------------------------------------------------------------------------------------------------------+
-    | warning    | Untuk mengatur apakah *warning message* dari kode ataupun chunk akan ditampilkan atau tidak.                       |
-    |            |                                                                                                                    |
-    |            | -   *true (default)* -\> Tampilan chunk akan ditampilkan                                                           |
-    |            |                                                                                                                    |
-    |            | -   *false* -\> Tampilan chunk tidak akan ditampilkan                                                              |
-    +------------+--------------------------------------------------------------------------------------------------------------------+
+    +-----------+--------------------------------------------------------------------------------------------------------------------+
+    | echo      | Untuk mengatur tampilan dari chunk kode akan ditampilkan atau tidak, walaupun kode pada chunknya tetap dijalankan. |
+    |           |                                                                                                                    |
+    |           | -   *true (default)* -\> Tampilan chunk akan ditampilkan                                                           |
+    |           |                                                                                                                    |
+    |           | -   *false* -\> Tampilan chunk tidak akan ditampilkan                                                              |
+    +-----------+--------------------------------------------------------------------------------------------------------------------+
+    | warning   | Untuk mengatur apakah *warning message* dari kode ataupun chunk akan ditampilkan atau tidak.                       |
+    |           |                                                                                                                    |
+    |           | -   *true (default)* -\> Tampilan chunk akan ditampilkan                                                           |
+    |           |                                                                                                                    |
+    |           | -   *false* -\> Tampilan chunk tidak akan ditampilkan                                                              |
+    +-----------+--------------------------------------------------------------------------------------------------------------------+
 
 -   ***Figures***
 
@@ -1015,6 +1073,102 @@ Penulisan narasi untuk menampilkan variabel dari chunk kode:
 Hasil dari penulisan narasi di atas:
 
 > Tahun ini, kita `{python} "telah mencapai target" if total_pendapatan >= target_pendapatan else "belum mencapai target"` pendapatan
+
+## Mengatur Tampilan Laporan
+
+Dalam membuat sebuah laporan terdapat beberapa pendekatan yang bisa dilakukan untuk menunjang hasil dari laporan dan juga menambahkan kemudahan dari pembaca laporan tersebut.
+
+### Pengaturan Hasil Tulisan
+
+#### Mengatur *Aligment* Tulisan
+
+Dalam melakukan pembuatan laporan, salah satu hal yang perlu diperhatikan adalah *aligment*, dan salah satu bentuk *aligment* yang paling sering digunakan karena hasilnya paling rapi adalah *justify*.
+
+Untuk mengatur hasil tulisan laporan memiliki bentuk *justify*, tahapan yang harus dilakukan adalah dengan mengatur dengan bantuan `HTML` & `CSS`, berikut adalah sintaks `HTML` & `CSS` yang dapat digunakan.
+
+```         
+<style>
+p {
+  text-align: justify;
+}
+</style>
+```
+
+Sintaks tersebut bisa diletakan, tepat di bawah bagian YAML, agar nantinya semua tulisan pada laporan yang dibuat memiliki *aligment justify*.
+
+### Memulai Kalimat Pada Halaman Baru
+
+Untuk meneruskan atau memaksa kalimat dimulai di halaman baru pada dokumen Quarto dapat menambahkan sintaks dari `LaTex`, biasanya disebut dengan konsep `LaTex tags`.
+
+Sintaks `\newpage` biasanya digunakan ketika hasil laporannya akan disimpan ke dalam bentuk PDF maupun Word. Penempatannya dapat diletakan pada akhir kalimat, sehingga kalimat berikutnya akan diteruskan ke halaman baru.
+
+#### Pengaturan Teks [Tambahan]
+
+Pengaturan yang akan dilakukan pada bagian ini diperuntuhkan untuk mengatur bentuk dari tulisan yang dicantumkan pada laporan, tulisannya tidak hanya terbatas untuk tulisan pada isi laporannya saja, melainkan bisa juga untuk dimanfaatkan dalam penulisan *heading*.
+
+Untuk sintaks yang digunakan sama dengan cara pengaturan *aligment* tulisan, berikut beberapa sintaks yang dapat dimanfaatkan:
+
+-   `{style="..."}` -\> Untuk menampung pengaturan yang akan diimplementasikan pada bagian teks
+    -   `font-size:` -\> Untuk mengatur ukuran tulisan
+    -   `color:` -\> Untuk mengatur warna dari tulisa
+
+### *Multi Column Layout* \[Tambahan\]
+
+#### **Format HTML**
+
+Quarto mendukung markdown dengan pengaturan kolom menggunakan sintaks seperti `:::{.column}` untuk membagi teks ke dalam dua atau lebih kolom.
+
+Berikut adalah contoh bagaimana membuat teks dalam dua kolom menggunakan Quarto Markdown:
+
+```         
+:::{.columns}
+
+::: {.column width="45%" style="margin-right: 5%"}
+
+Kalimat di Kolom Kiri
+
+:::
+
+::: {.column width="50%"}
+
+Kalimat di Kolom Kanan
+
+:::
+
+:::
+```
+
+Penjelasan:
+
+-   `:::{.columns}`: Ini adalah pembuka untuk membuat layout kolom.
+-   `::: {.column width="45%"}`: Bagian ini mendefinisikan satu kolom dengan lebar 45%, bisa menyesuaikan ukuran kolom sesuai kebutuhan.
+-   `style="margin-right: 5%"`: Bagian ini untuk mengatur jarak antara tulisan pada kolom kanan dengan yang di kiri.
+-   `Kalimat di Kolom Kiri/Kanan`: Posisi dari kalimat yang akan diletakan, apakah di posisikan pada bagian kiri ataupun kanan.
+-   `Penutup kolom :::`: Pastikan menutup setiap kolom dengan `:::`.
+
+Hasil Dari contoh di atas adalah sebagai berikut
+
+::: columns
+::: {.column width="45%" style="margin-right: 5%"}
+Kalimat di Kolom Kiri
+:::
+
+::: {.column width="50%"}
+Kalimat di Kolom Kanan
+:::
+:::
+
+#### **Format PDF**
+
+Untuk menghasilkan format PDF yang memiliki teks *multi column*, pendekatan yang perlu dilakukan cukup berbeda dengan format HTML.
+
+Format HTML, akan menggunakan konsep ataupun metode yang dipersiapkan `LaTex`. Format penulisannya bisa mengikuti pengaturan yang sama dengan membuat kalimat pada halaman baru. Berikut beberapa `LaTex tags` yang dapat dimanfaatkan:
+
+:   `\begin{multicols}{2}`: + `\begin{multicols}` -\> *Tags* ini diperuntuhkan untuk memulai kalimat yang akan dibuat *multicolumns* + `{2}` -\> Tambahan *tags* ini diperuntuhkan untuk mengatur berapa banyak kolom teks yang akan dibuat
+
+:   `\columnbreak`: Parameter ini digunakan untuk memberitahu kalimat mana yang akan diletakan pada bagian kolom kedua
+
+:   `\end{multicols}`: Parameter ini digunakan untuk memberitahu akhir dari kalimat
 
 ## ***Exporting Dynamic Reporting***
 

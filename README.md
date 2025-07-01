@@ -12,7 +12,7 @@ Template for dynamic Quarto reports using R. Generates:
 - R (v4.1+)
 - Quarto CLI (quarto)
 
-R packages:
+🔹**R packages**
 
 - tidyverse
 - quarto
